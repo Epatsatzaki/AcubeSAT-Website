@@ -1,5 +1,43 @@
 # WebPage Template
 
+## Setup
+
+1. Clone the repository
+
+2. Install dependencies:
+```bash
+npm install
+```
+3. Start the dev server:
+```bash
+npm run dev
+```
+4. Open your browser at:
+
+http://localhost:5173/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Getting started
