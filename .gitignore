@@ -1,5 +1,5 @@
 # Node modules
 node_modules/
 
-# Lock files (optional for templates)
+# Lock files
 package-lock.json
