@@ -27,15 +27,34 @@ const Home = () => {
     return () => window.removeEventListener('hashchange', handleHashScroll);
   }, []);
 
-  const nanosatellitesCount = useCounter(4400,2500,1);
-  const biologyMissionsCount = useCounter(0.3, 2000, 0);
-  const humansInSpaceCount = useCounter(700, 2000, 1);
+  const { count: nanosatellitesCount, ref: nanosatRef } = useCounter(4400, 2500, 1);
+  const { count: biologyMissionsCount, ref: biologyRef } = useCounter(0.3, 2000, 0);
+  const { count: humansInSpaceCount, ref: humansRef } = useCounter(700, 2000, 1);
 
-  const missionStatistics = [
-    { label: "Nanosatellites in Database", value: `${nanosatellitesCount.toLocaleString()}+`, description: "Total nanosatellites listed" },
-    { label: "Biology-focused Missions", value: `${biologyMissionsCount.toFixed(1)}%`, description: "Conducting biological research" },
-    { label: "Humans in Space", value: `${humansInSpaceCount.toLocaleString()}+`, description: "Providing physiological data" },
-    { label: "CubeSat Format", value: "3U+", description: "Extended capabilities design" }
+    const missionStatistics = [
+    { 
+      label: "Nanosatellites in Database", 
+      value: `${nanosatellitesCount.toLocaleString()}+`, 
+      description: "Total nanosatellites listed",
+      ref: nanosatRef
+    },
+    { 
+      label: "Biology-focused Missions", 
+      value: `${biologyMissionsCount.toFixed(1)}%`, 
+      description: "Conducting biological research",
+      ref: biologyRef
+    },
+    { 
+      label: "Humans in Space", 
+      value: `${humansInSpaceCount.toLocaleString()}+`, 
+      description: "Providing physiological data",
+      ref: humansRef
+    },
+    { 
+      label: "CubeSat Format", 
+      value: "3U+", 
+      description: "Extended capabilities design" 
+    }
   ];
 
   const acubesatCategories = [
@@ -131,24 +150,29 @@ const Home = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mission Statistics */}
-        <section className="mb-12">
+         <section className="mb-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {missionStatistics.map((stat, index) => (
-              <Card key={index} className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                  {stat.description}
-                </div>
-              </Card>
+              <div 
+                key={index} 
+                ref={stat.ref} // Add the ref to observe visibility
+                className="h-full"
+              >
+                <Card className="p-4 text-center h-full">
+                  <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    {stat.description}
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </section>
-
         {/* Main AcubeSAT Categories */}
         <section className="mb-16">
           <div className="space-y-8">

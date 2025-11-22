@@ -1,14 +1,50 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const useCounter = (end, duration = 2000, start = 0) => {
   const [count, setCount] = useState(start);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
-    // If start and end are the same, no need to animate
-    if (start === end) {
-      setCount(end);
-      return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          // Start counting when visible
+          setHasStarted(true);
+          // Clear any pending reset timeouts
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+          }
+        } else if (!entry.isIntersecting && hasStarted) {
+          // Reset after a short delay when not visible
+          timeoutRef.current = setTimeout(() => {
+            setHasStarted(false);
+            setCount(start);
+          }, 500); // 500ms delay before reset
+        }
+      },
+      { 
+        threshold: 0.8
+      }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
     }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [hasStarted, start]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
 
     let startTime;
     let animationFrame;
@@ -43,9 +79,9 @@ const useCounter = (end, duration = 2000, start = 0) => {
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [end, duration, start]);
+  }, [end, duration, start, hasStarted]);
 
-  return count;
+  return { count, ref: elementRef };
 };
 
 export default useCounter;
