@@ -8,6 +8,12 @@ import Contact from './pages/Contact/Contact'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
+  const [selectedHomeCategory, setSelectedHomeCategory] = useState(null)
+
+  const handleHomeCategorySelect = (category) => {
+    setSelectedHomeCategory(category)
+    setCurrentPage('home')
+  }
 
   const renderPage = () => {
     switch (currentPage) {
@@ -18,13 +24,17 @@ function App() {
       case 'contact':
         return <Contact />
       default:
-        return <Home />
+        return <Home selectedCategory={selectedHomeCategory} />
     }
   }
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Header 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage}
+        onHomeCategorySelect={handleHomeCategorySelect}
+      />
       <main className="flex-grow">
         {renderPage()}
       </main>

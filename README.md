@@ -8,6 +8,9 @@
 ```bash
 npm install
 ```
+```bash
+npm install react-router-dom
+```
 3. Start the dev server:
 ```bash
 npm run dev
