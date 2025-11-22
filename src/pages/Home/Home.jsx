@@ -104,166 +104,180 @@ const Home = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header Section */}
-      <div className="text-center mb-12">
-        <div className="flex justify-end mb-4">
+    <div>
+      {/* ADDED: Full-Screen Hero Section */}
+      <section 
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/images/backgrounds/payload-container.png")',
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        
+        {/* ADDED: ToggleTheme in the top-right corner */}
+        <div className="absolute top-4 right-4 z-20">
           <ToggleTheme />
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          AcubeSAT Mission
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          SpaceDot's pioneering CubeSat mission advancing space biology research through innovative student-led technology development.
-        </p>
-      </div>
-
-      {/* Mission Statistics */}
-      <section className="mb-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {missionStatistics.map((stat, index) => (
-            <Card key={index} className="p-4 text-center">
-              <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
-                {stat.label}
-              </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">
-                {stat.description}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Main AcubeSAT Categories */}
-      <section className="mb-16">
-        <div className="space-y-8">
-          {acubesatCategories.map((category, index) => (
-            <div key={index} id={category.id}>
-              <Card className="p-8">
-                <div className="flex items-start mb-6">
-                  <div className="text-4xl mr-6">{category.icon}</div>
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                      {category.title}
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                      {category.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                {category.details && (
-                  <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Project Specifications:</h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {category.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                          <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
-                          {detail}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Features */}
-                {category.features && (
-                  <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features:</h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {category.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                          <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Timeline Phases */}
-                {category.phases && (
-                  <div className="space-y-6">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Development Timeline:</h3>
-                    {category.phases.map((phase, phaseIndex) => (
-                      <div key={phaseIndex} className="border-l-2 border-primary-500 pl-4 ml-2">
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{phase.period}</h4>
-                        <ul className="space-y-1">
-                          {phase.events.map((event, eventIndex) => (
-                            <li key={eventIndex} className="text-gray-600 dark:text-gray-300 text-sm">
-                              • {event}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Research Goals */}
-                {category.researchGoals && (
-                  <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Research Objectives:</h3>
-                    <div className="space-y-2">
-                      {category.researchGoals.map((goal, goalIndex) => (
-                        <div key={goalIndex} className="flex items-start text-gray-600 dark:text-gray-300">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                          {goal}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Scientific Context */}
-                {category.scientificContext && (
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Scientific Background:</h3>
-                    <div className="space-y-2">
-                      {category.scientificContext.map((context, contextIndex) => (
-                        <div key={contextIndex} className="flex items-start text-gray-600 dark:text-gray-300">
-                          <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                          {context}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </Card>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="mb-16">
-        <Card className="p-8 text-center bg-gradient-to-r from-primary-500 to-primary-600 text-white">
-          <h2 className="text-2xl font-bold mb-4">Support Student Space Research</h2>
-          <p className="mb-6 opacity-90 max-w-2xl mx-auto">
-            Join us in advancing space biology research and supporting the next generation of space scientists and engineers through innovative educational programmes.
+        
+        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            AcubeSAT Mission
+          </h1>
+          <p className="text-xl md:text-2xl lg:text-3xl opacity-90 leading-relaxed">
+            SpaceDot's pioneering CubeSat mission advancing space biology research through innovative student-led technology development.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button variant="secondary" size="lg">
-              Learn About ESA Programmes
-            </Button>
-            <Button size="lg" className="bg-white text-primary-600 hover:bg-gray-100">
-              Follow Our Progress
-            </Button>
-          </div>
-        </Card>
+        </div>
       </section>
 
-      {/* Dynamic Components Demo */}
-      <section id="updates">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Mission Updates & Resources
-        </h2>
-        <DynamicList />
-      </section>
+      {/* ORIGINAL CONTENT - Everything below remains exactly the same */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Mission Statistics */}
+        <section className="mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {missionStatistics.map((stat, index) => (
+              <Card key={index} className="p-4 text-center">
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">
+                  {stat.description}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Main AcubeSAT Categories */}
+        <section className="mb-16">
+          <div className="space-y-8">
+            {acubesatCategories.map((category, index) => (
+              <div key={index} id={category.id}>
+                <Card className="p-8">
+                  <div className="flex items-start mb-6">
+                    <div className="text-4xl mr-6">{category.icon}</div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                        {category.title}
+                      </h2>
+                      <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                        {category.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Project Details */}
+                  {category.details && (
+                    <div className="mb-6">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Project Specifications:</h3>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        {category.details.map((detail, detailIndex) => (
+                          <div key={detailIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                            <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
+                            {detail}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Features */}
+                  {category.features && (
+                    <div className="mb-6">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features:</h3>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        {category.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                            <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Timeline Phases */}
+                  {category.phases && (
+                    <div className="space-y-6">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Development Timeline:</h3>
+                      {category.phases.map((phase, phaseIndex) => (
+                        <div key={phaseIndex} className="border-l-2 border-primary-500 pl-4 ml-2">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{phase.period}</h4>
+                          <ul className="space-y-1">
+                            {phase.events.map((event, eventIndex) => (
+                              <li key={eventIndex} className="text-gray-600 dark:text-gray-300 text-sm">
+                                • {event}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Research Goals */}
+                  {category.researchGoals && (
+                    <div className="mb-6">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Research Objectives:</h3>
+                      <div className="space-y-2">
+                        {category.researchGoals.map((goal, goalIndex) => (
+                          <div key={goalIndex} className="flex items-start text-gray-600 dark:text-gray-300">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                            {goal}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Scientific Context */}
+                  {category.scientificContext && (
+                    <div>
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Scientific Background:</h3>
+                      <div className="space-y-2">
+                        {category.scientificContext.map((context, contextIndex) => (
+                          <div key={contextIndex} className="flex items-start text-gray-600 dark:text-gray-300">
+                            <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                            {context}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </Card>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="mb-16">
+          <Card className="p-8 text-center bg-gradient-to-r from-primary-500 to-primary-600 text-white">
+            <h2 className="text-2xl font-bold mb-4">Support Student Space Research</h2>
+            <p className="mb-6 opacity-90 max-w-2xl mx-auto">
+              Join us in advancing space biology research and supporting the next generation of space scientists and engineers through innovative educational programmes.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Button variant="secondary" size="lg">
+                Learn About ESA Programmes
+              </Button>
+              <Button size="lg" className="bg-white text-primary-600 hover:bg-gray-100">
+                Follow Our Progress
+              </Button>
+            </div>
+          </Card>
+        </section>
+
+        {/* Dynamic Components Demo */}
+        <section id="updates">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            Mission Updates & Resources
+          </h2>
+          <DynamicList />
+        </section>
+      </div>
     </div>
   );
 };
