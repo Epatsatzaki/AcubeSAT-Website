@@ -3,6 +3,7 @@ import DynamicList from "../../components/dynamic/DynamicList";
 import ToggleTheme from "../../components/dynamic/ToggleTheme";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
+import useCounter from "../../hooks/useCounter";
 
 const Home = () => {
   // Handle hash URLs when page loads
@@ -25,6 +26,17 @@ const Home = () => {
     window.addEventListener('hashchange', handleHashScroll);
     return () => window.removeEventListener('hashchange', handleHashScroll);
   }, []);
+
+  const nanosatellitesCount = useCounter(4400,2500,1);
+  const biologyMissionsCount = useCounter(0.3, 2000, 0);
+  const humansInSpaceCount = useCounter(700, 2000, 1);
+
+  const missionStatistics = [
+    { label: "Nanosatellites in Database", value: `${nanosatellitesCount.toLocaleString()}+`, description: "Total nanosatellites listed" },
+    { label: "Biology-focused Missions", value: `${biologyMissionsCount.toFixed(1)}%`, description: "Conducting biological research" },
+    { label: "Humans in Space", value: `${humansInSpaceCount.toLocaleString()}+`, description: "Providing physiological data" },
+    { label: "CubeSat Format", value: "3U+", description: "Extended capabilities design" }
+  ];
 
   const acubesatCategories = [
     {
@@ -89,13 +101,6 @@ const Home = () => {
         "Previous experiments were low-scale with limited resolution"
       ]
     }
-  ];
-
-  const missionStatistics = [
-    { label: "Nanosatellites in Database", value: "4400+", description: "Total nanosatellites listed" },
-    { label: "Biology-focused Missions", value: "0.3%", description: "Conducting biological research" },
-    { label: "Humans in Space", value: "700+", description: "Providing physiological data" },
-    { label: "CubeSat Format", value: "3U+", description: "Extended capabilities design" }
   ];
 
   return (
