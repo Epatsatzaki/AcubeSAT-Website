@@ -104,22 +104,22 @@ const Home = () => {
   ];
 
   return (
-    <div>
-      {/* ADDED: Full-Screen Hero Section */}
+    <div className="pt-0">
+      {/* Hero Section*/}
       <section 
-        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat -mt-16"
         style={{
-          backgroundImage: 'url("/images/backgrounds/payload-container.png")',
+          backgroundImage: 'url("/images/backgrounds/payload-container.png")'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         
-        {/* ADDED: ToggleTheme in the top-right corner */}
-        <div className="absolute top-4 right-4 z-20">
+        {/* ToggleTheme */}
+        <div className="absolute top-20 right-4 z-20">
           <ToggleTheme />
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
+        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4 pt-16">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             AcubeSAT Mission
           </h1>
@@ -129,7 +129,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ORIGINAL CONTENT - Everything below remains exactly the same */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mission Statistics */}
         <section className="mb-12">

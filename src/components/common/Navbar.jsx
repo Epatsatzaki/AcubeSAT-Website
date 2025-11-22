@@ -17,13 +17,11 @@ const Navbar = () => {
   // Function to handle home section clicks
   const handleHomeSectionClick = (sectionId) => {
     if (location.pathname === '/') {
-      // If we're already on home page, scroll to section
       const element = document.getElementById(sectionId)
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
       }
     } else {
-      // If we're on another page, navigate to home with hash
       window.location.href = `/#${sectionId}`
     }
     setIsMobileMenuOpen(false)
@@ -35,7 +33,7 @@ const Navbar = () => {
       <div className="md:hidden">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+          className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-none"
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -48,14 +46,13 @@ const Navbar = () => {
         {navItems.map((item) => (
           <div key={item.path} className="relative group">
             {item.path === '/' && item.sections ? (
-              // Home with dropdown sections
               <div className="relative">
                 <Link
                   to="/"
                   className={`${
                     isActive(item.path)
                       ? 'text-primary-600 border-primary-600'
-                      : 'text-gray-500 hover:text-gray-700 border-transparent'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border-transparent'
                   } border-b-2 transition-colors duration-200 font-medium flex items-center`}
                 >
                   Home
@@ -64,8 +61,7 @@ const Navbar = () => {
                   </svg>
                 </Link>
                 
-                {/* Dropdown for home sections */}
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200 dark:border-gray-700">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200 dark:border-gray-700">
                   {item.sections.map((section) => (
                     <button
                       key={section}
@@ -81,13 +77,12 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              // Regular pages
               <Link
                 to={item.path}
                 className={`${
                   isActive(item.path)
                     ? 'text-primary-600 border-primary-600'
-                    : 'text-gray-500 hover:text-gray-700 border-transparent'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border-transparent'
                 } border-b-2 transition-colors duration-200 font-medium`}
               >
                 {item.label}
@@ -99,12 +94,11 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white shadow-lg md:hidden dark:bg-gray-800 z-50">
+        <div className="absolute top-16 left-0 right-0 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-lg md:hidden z-50">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <div key={item.path}>
                 {item.path === '/' && item.sections ? (
-                  // Home with sections in mobile
                   <div className="space-y-1">
                     <Link
                       to="/"
@@ -112,8 +106,8 @@ const Navbar = () => {
                       className={`${
                         isActive(item.path)
                           ? 'bg-primary-50 text-primary-600'
-                          : 'text-gray-500 hover:bg-gray-50'
-                      } block px-3 py-2 rounded-md font-medium transition-colors duration-200 dark:hover:bg-gray-700`}
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                      } block px-3 py-2 rounded-md font-medium transition-colors duration-200`}
                     >
                       Home
                     </Link>
@@ -133,15 +127,14 @@ const Navbar = () => {
                     </div>
                   </div>
                 ) : (
-                  // Regular pages
                   <Link
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`${
                       isActive(item.path)
                         ? 'bg-primary-50 text-primary-600'
-                        : 'text-gray-500 hover:bg-gray-50'
-                    } block px-3 py-2 rounded-md font-medium transition-colors duration-200 dark:hover:bg-gray-700`}
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    } block px-3 py-2 rounded-md font-medium transition-colors duration-200`}
                   >
                     {item.label}
                   </Link>
