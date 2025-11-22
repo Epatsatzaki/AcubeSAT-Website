@@ -1,11 +1,34 @@
-import DynamicList from '../../components/dynamic/DynamicList'
-import ToggleTheme from '../../components/dynamic/ToggleTheme'
-import Button from '../../components/ui/Button'
-import Card from '../../components/ui/Card'
+import { useEffect } from 'react';
+import DynamicList from "../../components/dynamic/DynamicList";
+import ToggleTheme from "../../components/dynamic/ToggleTheme";
+import Button from "../../components/ui/Button";
+import Card from "../../components/ui/Card";
 
 const Home = () => {
+  // Handle hash URLs when page loads
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    };
+
+    handleHashScroll();
+    
+    // Also handle browser back/forward navigation
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => window.removeEventListener('hashchange', handleHashScroll);
+  }, []);
+
   const acubesatCategories = [
     {
+      id: "project-overview",
       title: "AcubeSAT: SpaceDot's First Project",
       description: "The development of AcubeSAT started even before SpaceDot was born! AcubeSAT is a 3U+ CubeSat (340.5x100x100 mm + tuna can) designed and developed by students primarily based at the Aristotle University of Thessaloniki in Greece.",
       icon: "🚀",
@@ -24,6 +47,7 @@ const Home = () => {
       ]
     },
     {
+      id: "timeline",
       title: "Timeline of AcubeSAT",
       description: "The comprehensive development journey of AcubeSAT from concept to launch preparation, marking significant milestones in student-led space research and technology development.",
       icon: "📅",
@@ -47,6 +71,7 @@ const Home = () => {
       ]
     },
     {
+      id: "mission",
       title: "AcubeSAT's Mission",
       description: "Our mission was inspired by a fundamental question: Can we perform large-scale, biology-focused research in outer space, beyond the boundaries of crewed spacecraft, such as the International Space Station (ISS)?",
       icon: "🔬",
@@ -111,98 +136,100 @@ const Home = () => {
       <section className="mb-16">
         <div className="space-y-8">
           {acubesatCategories.map((category, index) => (
-            <Card key={index} className="p-8">
-              <div className="flex items-start mb-6">
-                <div className="text-4xl mr-6">{category.icon}</div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                    {category.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                    {category.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Project Details */}
-              {category.details && (
-                <div className="mb-6">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Project Specifications:</h3>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {category.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                        <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
-                        {detail}
-                      </div>
-                    ))}
+            <div key={index} id={category.id}>
+              <Card className="p-8">
+                <div className="flex items-start mb-6">
+                  <div className="text-4xl mr-6">{category.icon}</div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                      {category.title}
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                      {category.description}
+                    </p>
                   </div>
                 </div>
-              )}
 
-              {/* Features */}
-              {category.features && (
-                <div className="mb-6">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features:</h3>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {category.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Timeline Phases */}
-              {category.phases && (
-                <div className="space-y-6">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Development Timeline:</h3>
-                  {category.phases.map((phase, phaseIndex) => (
-                    <div key={phaseIndex} className="border-l-2 border-primary-500 pl-4 ml-2">
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{phase.period}</h4>
-                      <ul className="space-y-1">
-                        {phase.events.map((event, eventIndex) => (
-                          <li key={eventIndex} className="text-gray-600 dark:text-gray-300 text-sm">
-                            • {event}
-                          </li>
-                        ))}
-                      </ul>
+                {/* Project Details */}
+                {category.details && (
+                  <div className="mb-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Project Specifications:</h3>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {category.details.map((detail, detailIndex) => (
+                        <div key={detailIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                          <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
+                          {detail}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                )}
 
-              {/* Research Goals */}
-              {category.researchGoals && (
-                <div className="mb-6">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Research Objectives:</h3>
-                  <div className="space-y-2">
-                    {category.researchGoals.map((goal, goalIndex) => (
-                      <div key={goalIndex} className="flex items-start text-gray-600 dark:text-gray-300">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        {goal}
+                {/* Features */}
+                {category.features && (
+                  <div className="mb-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features:</h3>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {category.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                          <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Timeline Phases */}
+                {category.phases && (
+                  <div className="space-y-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Development Timeline:</h3>
+                    {category.phases.map((phase, phaseIndex) => (
+                      <div key={phaseIndex} className="border-l-2 border-primary-500 pl-4 ml-2">
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{phase.period}</h4>
+                        <ul className="space-y-1">
+                          {phase.events.map((event, eventIndex) => (
+                            <li key={eventIndex} className="text-gray-600 dark:text-gray-300 text-sm">
+                              • {event}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Scientific Context */}
-              {category.scientificContext && (
-                <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Scientific Background:</h3>
-                  <div className="space-y-2">
-                    {category.scientificContext.map((context, contextIndex) => (
-                      <div key={contextIndex} className="flex items-start text-gray-600 dark:text-gray-300">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        {context}
-                      </div>
-                    ))}
+                {/* Research Goals */}
+                {category.researchGoals && (
+                  <div className="mb-6">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Research Objectives:</h3>
+                    <div className="space-y-2">
+                      {category.researchGoals.map((goal, goalIndex) => (
+                        <div key={goalIndex} className="flex items-start text-gray-600 dark:text-gray-300">
+                          <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                          {goal}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </Card>
+                )}
+
+                {/* Scientific Context */}
+                {category.scientificContext && (
+                  <div>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Scientific Background:</h3>
+                    <div className="space-y-2">
+                      {category.scientificContext.map((context, contextIndex) => (
+                        <div key={contextIndex} className="flex items-start text-gray-600 dark:text-gray-300">
+                          <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                          {context}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </Card>
+            </div>
           ))}
         </div>
       </section>
@@ -226,7 +253,7 @@ const Home = () => {
       </section>
 
       {/* Dynamic Components Demo */}
-      <section>
+      <section id="updates">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           Mission Updates & Resources
         </h2>
