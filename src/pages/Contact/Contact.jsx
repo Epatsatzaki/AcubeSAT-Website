@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import Card from '../../components/ui/Card'
-import Button from '../../components/ui/Button'
+import { Modal, Alert, Card, Button, TextInput, Textarea, Label } from 'flowbite-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +7,9 @@ const Contact = () => {
     email: '',
     message: ''
   })
+  const [showModal, setShowModal] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
@@ -16,73 +18,126 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
     // Handle form submission here
     console.log('Form submitted:', formData)
-    alert('Thank you for your message! We\'ll get back to you soon.')
+    
+    // Show success alert
+    setShowAlert(true)
+    
+    // Hide alert after 5 seconds
+    setTimeout(() => {
+      setShowAlert(false)
+    }, 5000)
+    
     setFormData({ name: '', email: '', message: '' })
+    setIsSubmitting(false)
   }
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Flowbite Alert for success message */}
+      {showAlert && (
+        <Alert color="success" onDismiss={() => setShowAlert(false)} className="mb-6">
+          <span className="font-medium">Thank you for your message!</span> We'll get back to you soon.
+        </Alert>
+      )}
+
+      {/* Flowbite Card */}
       <Card className="p-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Contact Us</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Contact Us</h1>
+          
+          {/* Flowbite Button for Modal Trigger */}
+          <Button 
+            color="light" 
+            onClick={() => setShowModal(true)}
+            className="text-sm"
+          >
+            Quick Info
+          </Button>
+        </div>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Name
-            </label>
-            <input
+            {/* Flowbite Label */}
+            <Label htmlFor="name" value="Name" className="mb-1" />
+            {/* Flowbite TextInput */}
+            <TextInput
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="Your name"
+              className="w-full"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Email
-            </label>
-            <input
+            <Label htmlFor="email" value="Email" className="mb-1" />
+            <TextInput
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="your.email@example.com"
+              className="w-full"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Message
-            </label>
-            <textarea
+            <Label htmlFor="message" value="Message" className="mb-1" />
+            {/* Flowbite Textarea */}
+            <Textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              rows="6"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              rows={6}
               placeholder="Your message..."
+              className="w-full"
             />
           </div>
 
-          <Button type="submit" className="w-full">
-            Send Message
+          {/* Flowbite Submit Button */}
+          <Button 
+            type="submit" 
+            className="w-full"
+            disabled={isSubmitting}
+            isProcessing={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
         </form>
       </Card>
+
+      {/* Flowbite Modal */}
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Header>Contact Information</Modal.Header>
+        <Modal.Body>
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
+              <p className="text-gray-600 dark:text-gray-400">contact@spacedot.com</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white">Response Time</h4>
+              <p className="text-gray-600 dark:text-gray-400">We typically respond within a week</p>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   )
 }
