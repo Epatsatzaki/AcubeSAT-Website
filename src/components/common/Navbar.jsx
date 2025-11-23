@@ -19,11 +19,25 @@ const Navbar = () => {
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+        const navbar = document.querySelector('header')
+        const navbarHeight = navbar ? navbar.offsetHeight : 80
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - navbarHeight - 20
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
       }
     } else {
+      // When navigating from another page, let ScrollToTop handle it first
       window.location.href = `/#${sectionId}`
     }
+    setIsMobileMenuOpen(false)
+  }
+
+  // SIMPLIFIED: Just close mobile menu, ScrollToTop handles the rest
+  const handlePageClick = () => {
     setIsMobileMenuOpen(false)
   }
 
@@ -46,9 +60,11 @@ const Navbar = () => {
         {navItems.map((item) => (
           <div key={item.path} className="relative group">
             {item.path === '/' && item.sections ? (
+              // Home with dropdown sections
               <div className="relative">
                 <Link
                   to="/"
+                  onClick={handlePageClick}
                   className={`${
                     isActive(item.path)
                       ? 'text-primary-600 border-primary-600'
@@ -61,6 +77,7 @@ const Navbar = () => {
                   </svg>
                 </Link>
                 
+                {/* Dropdown for home sections */}
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200 dark:border-gray-700">
                   {item.sections.map((section) => (
                     <button
@@ -77,8 +94,10 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
+              // Regular pages
               <Link
                 to={item.path}
+                onClick={handlePageClick}
                 className={`${
                   isActive(item.path)
                     ? 'text-primary-600 border-primary-600'
@@ -99,10 +118,11 @@ const Navbar = () => {
             {navItems.map((item) => (
               <div key={item.path}>
                 {item.path === '/' && item.sections ? (
+                  // Home with sections in mobile
                   <div className="space-y-1">
                     <Link
                       to="/"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={handlePageClick}
                       className={`${
                         isActive(item.path)
                           ? 'bg-primary-50 text-primary-600'
@@ -127,9 +147,10 @@ const Navbar = () => {
                     </div>
                   </div>
                 ) : (
+                  // Regular pages in mobile
                   <Link
                     to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handlePageClick}
                     className={`${
                       isActive(item.path)
                         ? 'bg-primary-50 text-primary-600'
