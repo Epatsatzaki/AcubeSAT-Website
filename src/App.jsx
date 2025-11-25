@@ -4,8 +4,9 @@ import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
-import Services from './pages/Services/Services'
-import Contact from './pages/Contact/Contact'
+import Members from './pages/Members/Members'
+import Support from './pages/Support/Support'
+import Join from './pages/Join/Join'
 
 // Enhanced Scroll to top component
 const ScrollToTop = () => {
@@ -57,8 +58,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/members" element={<Members />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/join" element={<Join />} />
           </Routes>
         </main>
         <Footer />
