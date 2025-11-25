@@ -6,6 +6,10 @@
 
 2. Install dependencies:
 ```bash
+ npm install -D tailwindcss
+```
+Run `npm audit` for details.
+```bash
 npm install
 ```
 ```bash
