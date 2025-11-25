@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Members from './pages/Members/Members'
 import Support from './pages/Support/Support'
+import Contact from './pages/Contact/Contact'
 import Join from './pages/Join/Join'
 
 // Enhanced Scroll to top component
@@ -60,6 +61,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/members" element={<Members />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/join" element={<Join />} />
           </Routes>
         </main>
