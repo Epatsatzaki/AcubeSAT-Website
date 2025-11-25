@@ -147,26 +147,29 @@ const Home = () => {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Mission Statistics with Flowbite Cards */}
+        {/* Mission Statistics with Flowbite Cards - FIXED HEIGHTS */}
         <section className="mb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {missionStatistics.map((stat, index) => (
               <div key={index} ref={stat.ref} className="h-full">
-                <Card className="p-3 md:p-4 text-center">
-                  <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    {stat.description}
+                <Card className="p-3 md:p-4 text-center h-full flex flex-col">
+                  <div className="flex-1 flex flex-col justify-center">
+                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1 min-h-[32px] flex items-center justify-center">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2 min-h-[40px] flex items-center justify-center">
+                      {stat.label}
+                    </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 min-h-[32px] flex items-center justify-center">
+                      {stat.description}
+                    </div>
                   </div>
                 </Card>
               </div>
             ))}
           </div>
         </section>
+
         {/* Main AcubeSAT Categories */}
         <section className="mb-16">
           <div className="space-y-8">
