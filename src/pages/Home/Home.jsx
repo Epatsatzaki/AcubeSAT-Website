@@ -137,10 +137,10 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4 pt-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6">
             AcubeSAT Mission
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl opacity-90 leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed px-2">
             SpaceDot's pioneering CubeSat mission advancing space biology research through innovative student-led technology development.
           </p>
         </div>
@@ -149,10 +149,10 @@ const Home = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mission Statistics with Flowbite Cards */}
         <section className="mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {missionStatistics.map((stat, index) => (
               <div key={index} ref={stat.ref} className="h-full">
-                <Card className="p-4 text-center h-full">
+                <Card className="p-3 md:p-4 text-center">
                   <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
                     {stat.value}
                   </div>
@@ -172,11 +172,11 @@ const Home = () => {
           <div className="space-y-8">
             {acubesatCategories.map((category, index) => (
               <div key={index} id={category.id}>
-                <Card className="p-8">
-                  <div className="flex items-start mb-6">
-                    <div className="text-4xl mr-6">{category.icon}</div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <Card className="p-4 md:p-6 lg:p-8">
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                    <div className="text-3xl md:text-4xl">{category.icon}</div>
+                     <div className="flex-1">
+                       <h2 className="text-xl md:text-2xl font-bold mb-3">
                         {category.title}
                       </h2>
                       <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">

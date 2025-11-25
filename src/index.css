@@ -26,3 +26,18 @@
 html {
   scroll-padding-top: 5rem; /* This works globally */
 }
+
+/* Improve mobile touch targets */
+@media (max-width: 768px) {
+  button, 
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve text readability */
+  p, li {
+    line-height: 1.6;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
