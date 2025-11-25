@@ -33,6 +33,80 @@ const Services = () => {
         </p>
       </div>
 
+    {/* Flowbite Timeline for Company History */}
+    <Card className="p-8">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Our Journey</h2>
+        <Timeline>
+          <Timeline.Item>
+            <Timeline.Point />
+            <Timeline.Content>
+              <Timeline.Time>2023</Timeline.Time>
+              <Timeline.Title>SpaceDot Founded</Timeline.Title>
+              <Timeline.Body>
+                Started with a vision to advance space biology research through innovative satellite technology.
+              </Timeline.Body>
+            </Timeline.Content>
+          </Timeline.Item>
+          <Timeline.Item>
+            <Timeline.Point />
+            <Timeline.Content>
+              <Timeline.Time>2024</Timeline.Time>
+              <Timeline.Title>AcubeSAT Development</Timeline.Title>
+              <Timeline.Body>
+                Began development of our first 3U+ CubeSat mission focused on space biology research.
+              </Timeline.Body>
+            </Timeline.Content>
+          </Timeline.Item>
+          <Timeline.Item>
+            <Timeline.Point />
+            <Timeline.Content>
+              <Timeline.Time>Future</Timeline.Time>
+              <Timeline.Title>Launch & Research</Timeline.Title>
+              <Timeline.Body>
+                Preparing for launch and conducting groundbreaking research on microgravity effects.
+              </Timeline.Body>
+            </Timeline.Content>
+          </Timeline.Item>
+        </Timeline>
+      </Card>
+
+      {/* Flowbite Accordion for Technologies */}
+      <Card className="p-8">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Technology Stack</h2>
+        <Accordion>
+          <Accordion.Panel>
+            <Accordion.Title>Frontend Technologies</Accordion.Title>
+            <Accordion.Content>
+              <div className="grid md:grid-cols-2 gap-4">
+                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>• React & Vite</li>
+                  <li>• Tailwind CSS</li>
+                  <li>• Flowbite Components</li>
+                  <li>• Modern JavaScript (ES6+)</li>
+                </ul>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>• Responsive Design</li>
+                  <li>• Dark Mode Support</li>
+                  <li>• Component-Based Architecture</li>
+                  <li>• Best Practices</li>
+                </ul>
+              </div>
+            </Accordion.Content>
+          </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>Space Technology</Accordion.Title>
+            <Accordion.Content>
+              <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                <li>• 3U+ CubeSat Design</li>
+                <li>• Microgravity Research Systems</li>
+                <li>• Radiation Shielding Technology</li>
+                <li>• Biological Sample Preservation</li>
+              </ul>
+            </Accordion.Content>
+          </Accordion.Panel>
+        </Accordion>
+      </Card>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <Card key={index} hover className="p-6 text-center">

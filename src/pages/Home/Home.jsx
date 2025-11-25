@@ -126,7 +126,7 @@ const Home = () => {
       <section 
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat -mt-16"
         style={{
-          backgroundImage: 'url("/images/backgrounds/payload-container.png")'
+          backgroundImage: 'url("/images/backgrounds/home.png")'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
