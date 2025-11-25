@@ -7,13 +7,42 @@ import About from './pages/About/About'
 import Services from './pages/Services/Services'
 import Contact from './pages/Contact/Contact'
 
-// Scroll to top component
+// Enhanced Scroll to top component
 const ScrollToTop = () => {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    // Always scroll to top on route change, but delay slightly for page transition
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant' // Use 'instant' for immediate scroll
+      })
+    }, 10)
+
+    return () => clearTimeout(timer)
+  }, [pathname]) // Only trigger on pathname change, not hash changes
+
+  // Handle hash navigation separately (for home page sections)
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''))
+      if (element) {
+        setTimeout(() => {
+          const navbar = document.querySelector('header')
+          const navbarHeight = navbar ? navbar.offsetHeight : 80
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+          const offsetPosition = elementPosition - navbarHeight - 20
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          })
+        }, 100)
+      }
+    }
+  }, [hash])
 
   return null
 }
@@ -21,7 +50,7 @@ const ScrollToTop = () => {
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* Add this */}
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
