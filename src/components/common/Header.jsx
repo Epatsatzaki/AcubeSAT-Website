@@ -1,19 +1,37 @@
+import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
+import ToggleTheme from '../dynamic/ToggleTheme'
 
 const Header = () => {
   return (
-    <header className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border-b border-white/20 dark:border-gray-700/20 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 z-40 transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
-            <img 
-              src="images/SpaceDot-logos/AcubeSAT.png" 
-              className="h-[65px] w-[65px]" 
-            />
-            {/* Brand Name */}
-            <a href="/" className="text-2xl font-bold text-primary-600">AcubeSAT</a>
+          {/* Logo - larger version */}
+          <div className="flex-shrink-0 w-1/4 min-w-[120px] max-w-[220px]">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <img 
+                src="/images/SpaceDot-logos/AcubeSAT.png" 
+                alt="AcubeSAT Logo"
+                className="h-10 w-auto group-hover:scale-110 transition-transform duration-200"
+              />
+              <span className="hidden sm:inline text-xl font-bold text-gray-900 dark:text-white">
+                AcubeSAT
+              </span>
+            </Link>
           </div>
-          <Navbar />
+
+          {/* Navigation */}
+          <div className="flex-1 w-2/4 flex justify-center items-center min-w-0 px-1 sm:px-2">
+            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+              <Navbar />
+            </div>
+          </div>
+
+          {/* Theme toggle */}
+          <div className="flex-shrink-0 w-1/4 flex justify-end">
+            <ToggleTheme />
+          </div>
         </div>
       </div>
     </header>

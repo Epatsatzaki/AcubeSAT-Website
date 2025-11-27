@@ -124,7 +124,7 @@ const Home = () => {
     <div className="pt-0">
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat -mt-16"
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url("/images/backgrounds/home.png")'
         }}
@@ -132,11 +132,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         
         {/* ToggleTheme */}
-        <div className="absolute top-20 right-4 z-20">
+        <div className="absolute top-6 right-6 z-20">
           <ToggleTheme />
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4 pt-16">
+        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6">
             AcubeSAT Mission
           </h1>
@@ -146,40 +146,38 @@ const Home = () => {
         </div>
       </section>
 
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Mission Statistics with Flowbite Cards - FIXED HEIGHTS */}
+        {/* Mission Statistics with Flowbite Cards */}
         <section className="mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {missionStatistics.map((stat, index) => (
               <div key={index} ref={stat.ref} className="h-full">
-                <Card className="p-3 md:p-4 text-center h-full flex flex-col">
-                  <div className="flex-1 flex flex-col justify-center">
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1 min-h-[32px] flex items-center justify-center">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2 min-h-[40px] flex items-center justify-center">
-                      {stat.label}
-                    </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 min-h-[32px] flex items-center justify-center">
-                      {stat.description}
-                    </div>
+                <Card className="p-4 text-center h-full">
+                  <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    {stat.description}
                   </div>
                 </Card>
               </div>
             ))}
           </div>
         </section>
-
         {/* Main AcubeSAT Categories */}
         <section className="mb-16">
           <div className="space-y-8">
             {acubesatCategories.map((category, index) => (
               <div key={index} id={category.id}>
-                <Card className="p-4 md:p-6 lg:p-8">
-                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                    <div className="text-3xl md:text-4xl">{category.icon}</div>
-                     <div className="flex-1">
-                       <h2 className="text-xl md:text-2xl font-bold mb-3">
+                <Card className="p-8">
+                  <div className="flex items-start mb-6">
+                    <div className="text-4xl mr-6">{category.icon}</div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                         {category.title}
                       </h2>
                       <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
