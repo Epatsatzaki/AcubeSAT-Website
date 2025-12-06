@@ -201,7 +201,7 @@ const Navbar = () => {
         {/* Enhanced Join Us Button - Side by side text */}
         <Link
           to="/join"
-          className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 hover:shadow-lg shadow-md text-base lg:text-lg flex items-center justify-center min-h-[50px] lg:min-h-[60px]"
+          className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 hover:shadow-lg shadow-md text-base lg:text-lg flex items-center justify-center min-h-[50px] lg:min-h-[60px] whitespace-nowrap min-w-[100px]"
         >
           Join Us
         </Link>
