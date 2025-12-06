@@ -5,15 +5,9 @@
 1. Clone the repository
 
 2. Install dependencies:
-```bash
- npm install -D tailwindcss
-```
 Run `npm audit` for details.
 ```bash
 npm install
-```
-```bash
-npm install react-router-dom
 ```
 3. Start the dev server:
 ```bash
@@ -21,7 +15,7 @@ npm run dev
 ```
 4. Open your browser at:
 
-http://localhost:5173/
+http://localhost:3000/
 
 
 ## Description
