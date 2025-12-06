@@ -20,11 +20,11 @@ const Footer = () => {
   ];
 
   const socialMedia = [
-    { name: "Facebook", link: "...", icon: simpleIcons.siFacebook },
-    { name: "Instagram", link: "...", icon: simpleIcons.siInstagram },
-    { name: "LinkedIn", link: "...", icon: simpleIcons.siLinkedin },
-    { name: "YouTube", link: "...", icon: simpleIcons.siYoutube },
-    { name: "GitLab", link: "...", icon: simpleIcons.siGitlab },
+    { name: "Facebook", link: "https://www.facebook.com/spacedot.auth/", icon: simpleIcons.siFacebook },
+    { name: "Instagram", link: "https://www.instagram.com/spacedot.auth/?hl=el", icon: simpleIcons.siInstagram },
+    { name: "LinkedIn", link: "https://www.linkedin.com/company/spacedot/", icon: simpleIcons.siLinkedin },
+    { name: "YouTube", link: "https://www.youtube.com/c/SpaceDotAUTH", icon: simpleIcons.siYoutube },
+    { name: "GitLab", link: "https://gitlab.com/acubesat", icon: simpleIcons.siGitlab },
   ];
 
   return (
