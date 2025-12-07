@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const location = useLocation()
@@ -62,15 +64,10 @@ const Navbar = () => {
       ]
     },
     { 
-      path: '/support', 
-      label: 'Support',
-      subtitle: 'Help Our Mission',
-      sections: [
-        { id: 'why-support', label: '❓ Why Support Us?', description: 'Make an impact' },
-        { id: 'sponsors', label: '🏆 Our Sponsors', description: 'Amazing partners' },
-        { id: 'get-involved', label: '🤲 Get Involved', description: 'Ways to contribute' }
-      ]
+      path: '/sponsors', 
+      label: 'Sponsors',     
     },
+    
     { 
       path: '/contact', 
       label: 'Contact',
@@ -101,8 +98,9 @@ const Navbar = () => {
         })
       }
     } else {
-      window.location.href = `${path}#${sectionId}`
+      navigate(`${path}#${sectionId}`)
     }
+
     setIsMobileMenuOpen(false)
     setActiveDropdown(null)
   }
