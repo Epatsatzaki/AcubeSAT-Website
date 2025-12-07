@@ -85,38 +85,39 @@ const Sponsors = () => {
                   }}
                 >
                   {/* Front */}
-                  <div className="absolute w-full h-full backface-hidden flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
-                    <img
-                      src={sponsor.featured_image}
-                      alt={sponsor.title}
-                      className="h-24 object-contain mb-2"
-                    />
-                    {!config.showDescription && (
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {sponsor.title}
-                      </h3>
-                    )}
+                  <div className="absolute w-full h-full backface-hidden flex items-center justify-center rounded-2xl p-2">
+                    <div
+                      className={`flex items-center justify-center w-full h-full rounded-2xl p-2 ${
+                        sponsor.needsBackground ? "bg-white" : ""
+                      }`}
+                    >
+                      <img
+                        src={sponsor.featured_image}
+                        alt={sponsor.title}
+                        className="h-5/6 object-contain drop-shadow-lg"
+                      />
+                    </div>
                   </div>
 
                   {/* Back */}
-                  {config.showDescription && (
-                    <div className="absolute w-full h-full backface-hidden rotate-y-180 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-2xl p-6 text-center">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                        {sponsor.title}
-                      </h3>
-                      <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                  <div className="absolute w-full h-full backface-hidden rotate-y-180 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-2xl p-6 text-center overflow-y-auto">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      {sponsor.title}
+                    </h3>
+                    {sponsor.description.trim() && (
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                         <ReactMarkdown>{sponsor.description}</ReactMarkdown>
-                      </div>
-                      <a
-                        href={sponsor.sponsor_site}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 dark:text-primary-400 underline"
-                      >
-                        Visit Site
-                      </a>
-                    </div>
-                  )}
+                      </p>
+                    )}
+                    <a
+                      href={sponsor.sponsor_site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-600 dark:text-primary-400 underline"
+                    >
+                      Visit Site
+                    </a>
+                  </div>
                 </div>
               </div>
             );
