@@ -9,7 +9,7 @@ const Footer = () => {
     { name: "Fly Your Satellite", link: "https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite", image: "/images/ESA-logos/FYS.png",
       size: "max-h-[100px] w-auto"
     },
-    { name: "AUTH", link: "https://www.auth.gr", image: "/images/Fundraising/AUTH.png",
+    { name: "AUTH", link: "https://www.auth.gr", image: "/images/Sponsors/AUTH.png",
       size: "max-h-[100px] w-auto"
 
  
@@ -26,7 +26,6 @@ const socialMedia = [
   { name: "YouTube", link: "https://youtube.com/yourchannel", icon: siYoutube },
   { name: "GitLab", link: "https://gitlab.com/yourproject", icon: siGitlab },
 ];
-
 
   return (
     <footer className="bg-gray-800 text-white">
