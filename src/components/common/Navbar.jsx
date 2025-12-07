@@ -55,13 +55,7 @@ const Navbar = () => {
     },
     { 
       path: '/members', 
-      label: 'Members',
-      subtitle: 'Meet the Team',
-      sections: [
-        { id: 'core-team', label: '💫 Core Team', description: 'Leading the mission' },
-        { id: 'contributors', label: '🤝 Contributors', description: 'Amazing collaborators' },
-        { id: 'alumni', label: '🎓 Alumni', description: 'Past team members' }
-      ]
+      label: 'Members'
     },
     { 
       path: '/sponsors', 
