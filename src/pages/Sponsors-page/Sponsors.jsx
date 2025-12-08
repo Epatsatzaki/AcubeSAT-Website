@@ -94,7 +94,7 @@ const Sponsors = () => {
                       <img
                         src={sponsor.featured_image}
                         alt={sponsor.title}
-                        className="h-5/6 object-contain drop-shadow-lg"
+                        className="h-5/6 object-contain"
                       />
                     </div>
                   </div>
