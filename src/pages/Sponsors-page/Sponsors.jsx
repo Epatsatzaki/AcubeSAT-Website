@@ -88,7 +88,7 @@ const Sponsors = () => {
                   <div className="absolute w-full h-full backface-hidden flex items-center justify-center rounded-2xl p-2">
                     <div
                       className={`flex items-center justify-center w-full h-full rounded-2xl p-2 ${
-                        sponsor.needsBackground ? "bg-white" : ""
+                         "bg-white"  
                       }`}
                     >
                       <img

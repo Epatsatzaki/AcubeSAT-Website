@@ -1,8 +1,7 @@
 const jlcpcb = {
   title: "JLCPCB",
   sponsor_site: "https://jlcpcb.com/",
-  featured_image: "/images/Sponsors/jlcpcb.webp",
-  needsBackground: true,
+  featured_image: "/images/Sponsors/jlcpcb.webp", 
   description: ""}
 
 
