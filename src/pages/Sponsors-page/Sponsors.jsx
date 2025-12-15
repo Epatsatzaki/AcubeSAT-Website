@@ -129,11 +129,16 @@ const Sponsors = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* ===== TOP PART – UNCHANGED ===== */}
-      <div className="relative h-64 bg-gray-300 dark:bg-gray-700">
+      {/* ===== TOP PART WITH SPONSORS BACKGROUND IMAGE ===== */}
+      <div 
+        className="relative h-64 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/backgrounds/sponsors.jpg')" }}
+      >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-          <h1 className="text-4xl font-bold text-white">Support Our Mission</h1>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-white text-center px-4">
+            Support Our Mission
+          </h1>
         </div>
       </div>
 
