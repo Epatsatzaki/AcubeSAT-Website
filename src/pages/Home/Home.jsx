@@ -167,31 +167,18 @@ const Home = () => {
       ]
     },
     {
-      title: "Development Resources",
+      title: "Critical Design Review",
       icon: <SiOpensourceinitiative className="w-8 h-8" />,
-      description: "Tools, libraries, and frameworks developed for AcubeSAT. Use them for your own space research projects.",
-      link: "/development",
-      linkText: "⚡ View Resources",
+      description: "The formal gateway that validated AcubeSAT's final design. Access the full technical data package that finalized our satellite's design for construction, reviewed and approved by the European Space Agency.",
+      link: "https://gitlab.com/acubesat/documentation/cdr-public/",
+      linkText: "📂 Open Data Package",
       features: [
-        "Custom software libraries",
-        "Hardware testing tools",
-        "Simulation environments",
-        "Data analysis pipelines"
+        "Design Definition & Justification File (DDJF)",
+        "Failure Modes & Effects Analysis (FMEA)",
+        "Mission Analysis & Requirements (SDMR, SWRS)",
+        "Manufacturing & Integration Plans (MAIVP, MDO)"
       ]
     },
-    {
-      title: "Community",
-      icon: <SiDiscourse className="w-8 h-8" />,
-      description: "Join our growing community of space enthusiasts, researchers, and developers. Collaborate, share ideas, and contribute to open space science.",
-      link: "/community",
-      linkText: "👥 Join Community",
-      features: [
-        "Discussion forums",
-        "Collaboration opportunities",
-        "Events and workshops",
-        "Knowledge sharing"
-      ]
-    }
   ];
 
   return (
@@ -212,14 +199,9 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6">
-            AcubeSAT Mission
+            AcubeSAT
           </h1>
-          
-          <p className="text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed px-2 mb-6">
-            Pioneering open-source space biology research beyond the International Space Station
-          </p>
-          
-          {/* Our Moto */}
+
           <div className="mb-8">
             <p className="text-xl md:text-2xl font-semibold italic opacity-90">
               "because if it's not fun, why bother?"
