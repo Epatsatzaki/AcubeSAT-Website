@@ -1,6 +1,6 @@
 const noesis = {
   title: "Noesis",
-  sponsor_site: "https://www.overleaf.com/",
+  sponsor_site: "https://www.noesis.edu.gr/",
   featured_image: "/images/Sponsors/noesis.png",
   description: ""}
 
