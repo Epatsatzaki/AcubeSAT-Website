@@ -198,7 +198,7 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6">
+          <h1 className="text-6xl md:text-8xl lg:text-8xl xl:text-9xl font-bold mb-4 md:mb-6">
             AcubeSAT
           </h1>
 
