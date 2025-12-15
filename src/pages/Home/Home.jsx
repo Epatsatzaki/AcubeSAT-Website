@@ -285,7 +285,7 @@ const Home = () => {
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300">
-                    From the <span className="font-semibold">4,400+ nanosatellites</span> flown into space, only <span className="font-semibold">{biologyMissionsCount.toFixed(1)}%</span> were destined to study biological systems. None were European endeavors, and most experiments were low-scale with limited duration.
+                    From the <span className="font-semibold">4,400+ nanosatellites</span> flown into space, only <span className="font-semibold">0.3%</span> were destined to study biological systems. None were European endeavors, and most experiments were low-scale with limited duration.
                   </p>
                 </div>
               </div>
