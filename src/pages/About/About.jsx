@@ -1,5 +1,6 @@
 import React from 'react';
 import AcuteSatViewer from '../../components/3D/AcubeSATViewer';
+import VerticalTimeline from '../../components/dynamic/VerticalTimeline'; // Add this import
 
 const About = () => {
   return (
@@ -69,15 +70,16 @@ const About = () => {
           </div>
         </div>
 
-        {/* Timeline Section */}
+        {/* Timeline Section - Updated with Vertical Timeline */}
         <section id="timeline" className="mt-12">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Development Timeline
             </h2>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               Our journey from concept to launch preparation...
             </p>
+            <VerticalTimeline />
           </div>
         </section>
 

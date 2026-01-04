@@ -379,23 +379,6 @@ export default function AcuteSatViewer() {
             </div>
           </div>
           
-          <div className="parts-section">
-            <h3>CubeSat Components</h3>
-            <div className="parts-list">
-              {parts.map((part) => (
-                <div 
-                  key={part.id}
-                  className={`part-item ${activePart === part.id ? 'active' : ''}`}
-                  onClick={() => handlePartClick(part.id)}
-                  style={{ borderLeftColor: part.color }}
-                >
-                  <div className="part-name">{part.name}</div>
-                  <div className="part-desc">{part.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
           <div className="info-section">
             <h3>About AcuteSAT</h3>
             <p>
