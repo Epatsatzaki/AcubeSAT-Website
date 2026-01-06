@@ -295,7 +295,65 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Vision Section - Friendly and Approachable */}
+        {/* Our Experiment Section */}
+        <section id="our-experiment" className="mb-16 scroll-mt-20">
+          <div className="relative group">
+            {/* Glow effect */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#D99000] via-fuchsia-500 to-indigo-500 opacity-30 blur-md group-hover:opacity-50 transition duration-500"></div>
+            
+            <div className="relative rounded-3xl border-2 
+              border-[#D99000] dark:border-purple-400/40 
+              bg-[#FFF9EB] dark:bg-gradient-to-br dark:from-orange-800 dark:via-orange-700 dark:to-amber-700 
+              p-6 md:p-8 shadow-xl transition-all duration-300">
+              
+              <div className="flex flex-col md:flex-row gap-8 items-stretch">
+                {/* Text content */}
+                <div className="md:w-2/3 flex items-center">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                      Our Experiment
+                    </h3>
+                    <p className="text-gray-700 dark:text-white text-lg leading-relaxed">
+                      AcubeSAT features an{" "}
+                      <span className="font-bold text-[#D99000] dark:text-orange-200">
+                        in-house built pressurized vessel
+                      </span>{" "}
+                      containing a microscopic assay and a lab-on-a-chip, designed to
+                      sustain{" "}
+                      <span className="font-semibold italic">
+                        Saccharomyces cerevisiae
+                      </span>{" "}
+                      (yeast) growth in Low Earth Orbit. This enables us to probe the
+                      effects of{" "}
+                      <span className="font-bold text-[#D99000] dark:text-orange-200">
+                        radiation and microgravity
+                      </span>{" "}
+                      conditions at a cellular level.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image Container */}
+                <div className="md:w-1/3">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#D99000]/20 dark:border-purple-300/40 h-full min-h-[200px]">
+                    <img
+                      src="/images/backgrounds/ourExperiment_Home.png"
+                      alt="AcubeSAT Laboratory Platform"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <p className="text-white text-sm font-medium">
+                        Lab-on-a-chip technology
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision Section*/}
         <section id="vision" className="mb-16 scroll-mt-20">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">

@@ -63,15 +63,8 @@ const Navbar = () => {
     },
     
     { 
-      path: '/contact', 
-      label: 'Contact',
-      subtitle: 'Get In Touch',
-      sections: [
-        { id: 'general-inquiry', label: '📧 General Inquiry', description: 'Questions about our project' },
-        { id: 'collaboration', label: '🤝 Collaboration', description: 'Partner with us' },
-        { id: 'media', label: '📰 Media & Press', description: 'Press inquiries' },
-        { id: 'technical', label: '🔧 Technical Support', description: 'Technical questions' }
-      ]
+      path: '/academia', 
+      label: 'Academia',
     },
   ]
 
