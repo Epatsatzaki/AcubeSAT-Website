@@ -131,7 +131,7 @@ const Sponsors = () => {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* ===== TOP PART WITH SPONSORS BACKGROUND IMAGE ===== */}
       <div 
-        className="relative h-64 bg-cover bg-center"
+        className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/images/backgrounds/sponsors.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
@@ -141,6 +141,31 @@ const Sponsors = () => {
           </h1>
         </div>
       </div>
+
+
+      {/* 2. MOVING BANNER SECTION */}
+      <div className="bg-white dark:bg-[#030712] border-y border-gray-100 dark:border-gray-800 py-10 overflow-hidden select-none">
+  <div className="flex whitespace-nowrap animate-marquee-slow">
+    {[...Array(10)].map((_, i) => (
+      <div key={i} className="flex items-center">
+        {/* Solid Text - Less bulky, more tracking */}
+        <span className="text-5xl md:text-7xl font-light uppercase tracking-[0.2em] text-gray-900 dark:text-white mx-10">
+          Sponsors
+        </span>
+        {/* Outlined Text - Very thin stroke for a high-end feel */}
+        <span 
+          className="text-5xl md:text-7xl font-light uppercase tracking-[0.2em] mx-10 opacity-20"
+          style={{ 
+            color: 'transparent', 
+            WebkitTextStroke: '1px currentColor' 
+          }}
+        >
+          Sponsors
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
 
       {/* Why Sponsor Us */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">

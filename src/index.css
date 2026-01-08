@@ -24,7 +24,7 @@
 
 /* Force scroll offset for all elements */
 html {
-  scroll-padding-top: 5rem; /* This works globally */
+  scroll-padding-top: 5rem; 
 }
 
 /* Improve mobile touch targets */
@@ -35,13 +35,35 @@ html {
     min-width: 44px;
   }
   
-  /* Improve text readability */
   p, li {
     line-height: 1.6;
-    font-size: 16px; /* Prevent zoom on iOS */
+    font-size: 16px; 
   }
 }
 
+/* --- 3D Card Utilities --- */
+.perspective {
+  perspective: 1200px; /* Gives the flip more depth */
+}
+
 .rotate-y-180 { transform: rotateY(180deg) !important; }
-.backface-hidden { backface-visibility: hidden !important; }
+.backface-hidden { backface-visibility: hidden !important; -webkit-backface-visibility: hidden; }
 .transform-style-3d { transform-style: preserve-3d !important; }
+
+/* --- Marquee Animation (The "SECTORS" Moving Banner) --- */
+@keyframes marquee-slow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-slow {
+  /* 60s makes it feel sophisticated and professional, not like a sports ad */
+  animation: marquee-slow 60s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Optional: Pause on hover so people can read the banner */
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}

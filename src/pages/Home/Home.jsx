@@ -179,6 +179,19 @@ const Home = () => {
         "Manufacturing & Integration Plans (MAIVP, MDO)"
       ]
     },
+    {
+      title: "Phase D Documentation",
+      icon: <FaSatellite className="w-8 h-8" />,
+      description: "Access the public PDF files for AcubeSAT's Phase D, focusing on Assembly, Integration, and Verification (AIV) activities conducted under the ESA Fly Your Satellite! programme.",
+      link: "https://gitlab.com/acubesat/documentation/phase-d-documentation-public/",
+      linkText: "🔬 View Test Reports",
+      features: [
+        "Test Specifications & Procedures (TSTP)",
+        "Environmental Test Reports (TRPT)",
+        "Antenna Deployment Mechanism (ADM) data",
+        "Vibration and Thermal Vacuum (TVAC) tests"
+      ]
+    },
   ];
 
   return (

@@ -1,18 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Academia = () => {
-  // State to track which sections are visible. By default, all are true (visible).
   const [visibleSections, setVisibleSections] = useState({
-    0: false, // Bachelor's and Master's Theses
-    1: false, // Conference Papers
-    2: false  // (In Greek) Bachelor's and Master's Theses
+    0: false, 
+    1: false, 
+    2: false  
   });
+
+  const [activeTab, setActiveTab] = useState(null);
 
   const toggleSection = (index) => {
     setVisibleSections((prev) => ({
       ...prev,
       [index]: !prev[index]
     }));
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveTab(entry.target.id);
+          }
+        });
+      },
+      { 
+        threshold: 0, 
+        rootMargin: "-20% 0px -75% 0px" 
+      }
+    );
+
+    const sections = ['team-labs', 'publications'];
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    const heroEl = document.getElementById("academia-hero");
+    const clearObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setActiveTab(null);
+      },
+      { threshold: 0.5 }
+    );
+    if (heroEl) clearObserver.observe(heroEl);
+
+    return () => {
+      observer.disconnect();
+      clearObserver.disconnect();
+    };
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 140; 
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const publications = [
@@ -119,10 +170,10 @@ const Academia = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-200">
+    // UPDATED: Main background color to match the bar (White / Gray-900)
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       
-      {/* 1. Header with academia.jpg Background */}
-      <div 
+      <div id="academia-hero"
         className="relative h-64 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/backgrounds/academia.jpg')" }}
       >
@@ -134,10 +185,35 @@ const Academia = () => {
         </div>
       </div>
 
+      {/* UPDATED: Bar background exactly matches the parent background */}
+      <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b-2 border-black dark:border-gray-700 py-4">
+        <div className="max-w-7xl mx-auto px-6 flex justify-center flex-wrap gap-3">
+          <button
+            onClick={() => scrollToSection('team-labs')}
+            className={`text-[10px] md:text-xs font-black uppercase tracking-widest px-4 py-2 border-2 transition-all duration-300 ${
+              activeTab === 'team-labs' 
+              ? "bg-[#a6c9ff] dark:bg-blue-600 text-black dark:text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-y-1" 
+              : "border-black/10 dark:border-white/10 text-gray-400 dark:text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
+            }`}
+          >
+            Our Facilities
+          </button>
+          <button
+            onClick={() => scrollToSection('publications')}
+            className={`text-[10px] md:text-xs font-black uppercase tracking-widest px-4 py-2 border-2 transition-all duration-300 ${
+              activeTab === 'publications' 
+              ? "bg-[#a6c9ff] dark:bg-blue-600 text-black dark:text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-y-1" 
+              : "border-black/10 dark:border-white/10 text-gray-400 dark:text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
+            }`}
+          >
+            Publications
+          </button>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         
-        {/* Team Laboratories Section */}
-        <section id="team-labs" className="py-12">
+        <section id="team-labs" className="py-12 scroll-mt-44">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight">
               Our Facilities
@@ -146,7 +222,7 @@ const Academia = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-[#0B1120] shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+            <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
                 <div className="absolute inset-0 flex items-center justify-center text-blue-300 dark:text-slate-600 italic font-medium">
                   [Laboratory Workspace Photo]
@@ -177,7 +253,7 @@ const Academia = () => {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-[#0B1120] shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+            <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
                 <div className="absolute inset-0 flex items-center justify-center text-blue-300 dark:text-slate-600 italic font-medium">
                   [Clean Room Facility Photo]
@@ -210,8 +286,7 @@ const Academia = () => {
           </div>
         </section>
 
-        {/* Publications Section */}
-        <section id="publications" className="mt-24 py-12">
+        <section id="publications" className="mt-24 py-12 scroll-mt-44">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight">
               Publications
