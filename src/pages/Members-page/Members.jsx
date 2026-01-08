@@ -153,11 +153,10 @@ const Members = () => {
         style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl font-light text-white uppercase tracking-[0.5em]">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-6xl text-white text-center px-4">
             Members
           </h1>
-          <div className="w-16 h-0.5 bg-white/60 mt-4"></div>
         </div>
       </div>
 

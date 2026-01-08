@@ -119,16 +119,23 @@ const Academia = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        
-        {/* Header Section */}
-        <header className="mb-20 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
+    <div className="min-h-screen bg-white dark:bg-[#030712] transition-colors duration-200">
+      
+      {/* 1. Header with academia.jpg Background */}
+      <div 
+        className="relative h-64 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/backgrounds/academia.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-white text-center px-4">
             Academia
           </h1>
-        </header>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        
         {/* Team Laboratories Section */}
         <section id="team-labs" className="py-12">
           <div className="text-center mb-12">
@@ -204,9 +211,7 @@ const Academia = () => {
         </section>
 
         {/* Publications Section */}
-        {/* mt-24 and py-12 added to increase space between sections */}
         <section id="publications" className="mt-24 py-12">
-          {/* Re-styled Header to match "Our Facilities" */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight">
               Publications
