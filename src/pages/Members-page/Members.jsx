@@ -155,7 +155,7 @@ const Members = () => {
     <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       {/* 1. Header */}
       <div 
-        className="relative h-[70vh] bg-cover bg-top flex items-center justify-center"
+        className="relative h-[65vh] bg-cover bg-top flex items-center justify-center"
         style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
