@@ -3,6 +3,7 @@ import { Card, Button } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import ToggleTheme from "../../components/dynamic/ToggleTheme";
 import useCounter from "../../hooks/useCounter";
+import { Helmet } from 'react-helmet-async';
 import { 
   SiGitlab, 
   SiReadthedocs, 
@@ -196,6 +197,9 @@ const Home = () => {
 
   return (
     <div className="pt-0">
+      <Helmet>
+        <title>Home | AcubeSAT</title>
+      </Helmet>
       {/* Hero Section */}
       <section 
         className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"

@@ -1,9 +1,13 @@
 import AcuteSatViewer from '../../components/3D/AcubeSATViewer';
 import VerticalTimeline from './VerticalTimeline';
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+      <Helmet>
+        <title>About | AcubeSAT</title>
+      </Helmet>
       {/* 3D Viewer Section */}
       <div className="pt-16">
         <AcuteSatViewer />

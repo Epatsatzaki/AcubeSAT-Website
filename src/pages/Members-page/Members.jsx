@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { FaLinkedin, FaGitlab } from "react-icons/fa";
+import { Helmet } from 'react-helmet-async';
 
 const subsystemConfig = [
   { key: "ADCS", title: "ADCS", description: "Attitude Determination and Control Subsystem." },
@@ -148,6 +149,9 @@ const Members = () => {
 
   return (
     <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+      <Helmet>
+        <title>Members | AcubeSAT</title>
+      </Helmet>
       <div 
         className="relative h-[65vh] bg-cover bg-top flex items-center justify-center"
         style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}

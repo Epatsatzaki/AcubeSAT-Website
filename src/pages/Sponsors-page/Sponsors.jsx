@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { Helmet } from 'react-helmet-async';
 
 const categoryConfig = [
   { key: "Diamond", title: "Diamond Sponsors", showDescription: true },
@@ -129,6 +130,9 @@ const Sponsors = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      <Helmet>
+        <title>Sponsors | AcubeSAT</title>
+      </Helmet>
       {/* ===== TOP PART WITH SPONSORS BACKGROUND IMAGE ===== */}
       <div 
         className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
