@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Assuming you use react-router-dom for navigation
+import { Link } from "react-router-dom"; 
 import { FaLinkedin, FaGitlab } from "react-icons/fa";
 
 const subsystemConfig = [
@@ -36,12 +36,10 @@ const Members = () => {
     loadMembers();
   }, []);
 
-  // Fixed Intersection Observer for tall sections (more than 3 members)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // If the section is intersecting the top half of the screen
           if (entry.isIntersecting) {
             setActiveSubsystem(entry.target.id);
           }
@@ -49,9 +47,6 @@ const Members = () => {
       },
       { 
         threshold: 0, 
-        // rootMargin: top bottom left right
-        // -20% from top and -70% from bottom creates a specific "detection line" 
-        // that works even for very long sections.
         rootMargin: "-20% 0px -75% 0px" 
       }
     );
@@ -61,7 +56,6 @@ const Members = () => {
       if (el) observer.observe(el);
     });
 
-    // Special observer to clear selection when you scroll back to the top (Intro section)
     const introEl = document.getElementById("intro-section");
     const clearObserver = new IntersectionObserver(
       ([entry]) => {
@@ -103,7 +97,8 @@ const Members = () => {
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-2 uppercase tracking-tighter">
             {config.title}
           </h2>
-          <div className="w-24 h-1.5 bg-blue-600 mx-auto mb-4"></div>
+          {/* Underline: Pastel Blue in Light mode, Solid Blue in Dark mode */}
+          <div className="w-24 h-1.5 bg-[#a6c9ff] dark:bg-blue-600 mx-auto mb-4 rounded-full transition-colors duration-200"></div>
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 italic font-medium px-4">
             {config.description}
           </p>
@@ -139,7 +134,7 @@ const Members = () => {
                 )}
                 {member.LinkedIN && (
                   <a href={member.LinkedIN} target="_blank" rel="noreferrer" 
-                     className="text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-white transition-all transform hover:scale-110">
+                     className="text-gray-400 dark:text-gray-500 hover:text-[#a6c9ff] dark:hover:text-blue-500 transition-all transform hover:scale-110">
                     <FaLinkedin size={24} />
                   </a>
                 )}
@@ -153,7 +148,6 @@ const Members = () => {
 
   return (
     <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
-      {/* 1. Header */}
       <div 
         className="relative h-[65vh] bg-cover bg-top flex items-center justify-center"
         style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}
@@ -167,7 +161,6 @@ const Members = () => {
         </div>
       </div>
 
-      {/* 2. Smart Dynamic Sticky Nav */}
       <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b-2 border-black dark:border-gray-700 py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-center flex-wrap gap-3">
           {activeNavItems.map((sub) => (
@@ -176,7 +169,7 @@ const Members = () => {
               onClick={() => scrollToSubsystem(sub.key)}
               className={`text-[10px] md:text-xs font-black uppercase tracking-widest px-4 py-2 border-2 transition-all duration-300 ${
                 activeSubsystem === sub.key 
-                ? "bg-blue-600 text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-y-1" 
+                ? "bg-[#a6c9ff] dark:bg-blue-600 text-black dark:text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-y-1" 
                 : "border-black/10 dark:border-white/10 text-gray-400 dark:text-gray-500 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
               }`}
             >
@@ -187,7 +180,6 @@ const Members = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-24">
-        {/* 3. CENTERED Intro Text (added ID for the clearObserver) */}
         <section id="intro-section" className="mb-32 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-widest">
             Who We Are
@@ -204,15 +196,13 @@ const Members = () => {
             </p>
           </div>
           
-          {/* Become a Member Button linked to Join page */}
           <Link to="/join">
-            <button className="mt-12 px-10 py-4 bg-blue-600 text-white font-black uppercase tracking-widest border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+            <button className="mt-12 px-10 py-4 bg-[#a6c9ff] dark:bg-blue-600 text-black dark:text-white font-black uppercase tracking-widest border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
               Become a Member
             </button>
           </Link>
         </section>
 
-        {/* 4. Members Sections */}
         <div className="pb-24">
           {subsystemConfig.map(renderSubsystem)}
         </div>
