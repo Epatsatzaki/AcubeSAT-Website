@@ -34,24 +34,12 @@ const Navbar = () => {
 
   const navItems = [
     { 
-      path: '/', 
-      label: 'Home', 
-      subtitle: 'Start Here',
-      sections: [
-        { id: 'vision-values', label: '🌟 Vision & Values', description: 'Our guiding principles' },
-        { id: 'open-source', label: '📚 Open Source Resources', description: 'Tools & knowledge for all' }
-      ] 
-    },
-    { 
       path: '/about', 
       label: 'About',
-      subtitle: 'Our Mission',
-      sections: [
-        { id: 'project-overview', label: '📋 Project Overview', description: 'What we\'re building' },
-        { id: 'timeline', label: '📅 Timeline', description: 'Our journey so far' },
-        { id: 'fys-programme', label: '⭐ FYS Programme', description: 'ESA collaboration' },
-        { id: 'team-labs', label: '🔬 Team Laboratories', description: 'Research facilities' }
-      ]
+    },
+    { 
+      path: '/academia', 
+      label: 'Academia',
     },
     { 
       path: '/members', 
@@ -62,10 +50,6 @@ const Navbar = () => {
       label: 'Sponsors',     
     },
     
-    { 
-      path: '/academia', 
-      label: 'Academia',
-    },
   ]
 
   const isActive = (path) => location.pathname === path
