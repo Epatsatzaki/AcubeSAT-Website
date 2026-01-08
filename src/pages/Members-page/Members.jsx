@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Assuming you use react-router-dom for navigation
 import { FaLinkedin, FaGitlab } from "react-icons/fa";
 
 const subsystemConfig = [
@@ -18,7 +19,7 @@ const modules = import.meta.glob("/src/pages/Members-page/members/**/*.js");
 
 const Members = () => {
   const [members, setMembers] = useState({});
-  const [activeSubsystem, setActiveSubsystem] = useState(null); // Initialize as null
+  const [activeSubsystem, setActiveSubsystem] = useState(null);
 
   useEffect(() => {
     const loadMembers = async () => {
@@ -35,21 +36,23 @@ const Members = () => {
     loadMembers();
   }, []);
 
+  // Fixed Intersection Observer for tall sections (more than 3 members)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // If the section is intersecting the top half of the screen
           if (entry.isIntersecting) {
             setActiveSubsystem(entry.target.id);
-          } else if (activeSubsystem === entry.target.id) {
-            // If the section that was active is no longer intersecting, clear it
-            setActiveSubsystem(null);
           }
         });
       },
       { 
-        threshold: 0.1, 
-        rootMargin: "-30% 0px -60% 0px" // Adjusted to clear selection at the top/bottom of sections
+        threshold: 0, 
+        // rootMargin: top bottom left right
+        // -20% from top and -70% from bottom creates a specific "detection line" 
+        // that works even for very long sections.
+        rootMargin: "-20% 0px -75% 0px" 
       }
     );
 
@@ -58,8 +61,21 @@ const Members = () => {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
-  }, [members, activeSubsystem]);
+    // Special observer to clear selection when you scroll back to the top (Intro section)
+    const introEl = document.getElementById("intro-section");
+    const clearObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setActiveSubsystem(null);
+      },
+      { threshold: 0.5 }
+    );
+    if (introEl) clearObserver.observe(introEl);
+
+    return () => {
+      observer.disconnect();
+      clearObserver.disconnect();
+    };
+  }, [members]);
 
   const scrollToSubsystem = (id) => {
     const element = document.getElementById(id);
@@ -137,6 +153,7 @@ const Members = () => {
 
   return (
     <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+      {/* 1. Header */}
       <div 
         className="relative h-[70vh] bg-cover bg-top flex items-center justify-center"
         style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}
@@ -150,6 +167,7 @@ const Members = () => {
         </div>
       </div>
 
+      {/* 2. Smart Dynamic Sticky Nav */}
       <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b-2 border-black dark:border-gray-700 py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-center flex-wrap gap-3">
           {activeNavItems.map((sub) => (
@@ -169,7 +187,8 @@ const Members = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <section className="mb-32 max-w-4xl mx-auto text-center">
+        {/* 3. CENTERED Intro Text (added ID for the clearObserver) */}
+        <section id="intro-section" className="mb-32 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-widest">
             Who We Are
           </h2>
@@ -184,11 +203,16 @@ const Members = () => {
               aerospace in Greece first-hand.
             </p>
           </div>
-          <button className="mt-12 px-10 py-4 bg-blue-600 text-white font-black uppercase tracking-widest border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
-            Become a Member
-          </button>
+          
+          {/* Become a Member Button linked to Join page */}
+          <Link to="/join">
+            <button className="mt-12 px-10 py-4 bg-blue-600 text-white font-black uppercase tracking-widest border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+              Become a Member
+            </button>
+          </Link>
         </section>
 
+        {/* 4. Members Sections */}
         <div className="pb-24">
           {subsystemConfig.map(renderSubsystem)}
         </div>
