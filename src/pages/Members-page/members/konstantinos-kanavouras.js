@@ -1,5 +1,5 @@
 export default {
-  title: "Anastasios Faidon Retselis",
+  title: "Konstantinos Kanavouras",
   featured_image: "../../images/Members/IT_Kanavouras.png",
   member_category: "IT",
   subTitle: "Engineer",

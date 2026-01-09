@@ -4,16 +4,16 @@ import { FaLinkedin, FaGitlab } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
 
 const subsystemConfig = [
-  { key: "ADCS", title: "ADCS", description: "Attitude Determination and Control Subsystem." },
-  { key: "COMMS", title: "COMMS", description: "Communication system for data transmission." },
-  { key: "IT", title: "IT", description: "Information Technology and infrastructure." },
-  { key: "MRK", title: "MRK", description: "Marketing and outreach team." },
-  { key: "OBC", title: "OBC", description: "On-Board Computer Electronics." },
-  { key: "OBSW", title: "OBSW", description: "On-Board Software development." },
-  { key: "SU", title: "SU", description: "Scientific Unit / Payload." },
-  { key: "STR", title: "STR", description: "Structures and mechanical design." },
-  { key: "SYE", title: "SYE", description: "Systems Engineering." },
-  { key: "THE", title: "THE", description: "Thermal control subsystem." },
+  { key: "ADCS", title: "ADCS", description: <p className="new-line">{"Attitude Determination and Control Subsystem. \nResponsible for the satellite's orientation and stabilization in space."}</p> },
+  { key: "COPS", title: "COPS", description: <p className="new-line">{"Communication and Operations System. \nManages data transmission and ground-to-space mission operations."}</p> },
+  { key: "IT", title: "IT", description: <p className="new-line">{"Information Technology. \nManages the ground-based infrastructure and internal network systems."}</p> },
+  { key: "MRK", title: "MRK", description: <p className="new-line">{"Marketing and Outreach. \nHandles public relations, social media, and community engagement."}</p> },
+  { key: "OBC", title: "OBC", description: <p className="new-line">{"On-Board Computer. \nDesign and development of the satellite's central processing hardware and software."}</p> },
+  { key: "OBSW", title: "OBSW", description: <p className="new-line">{"On-Board Software. \nResponsible for mission's software development and embedded systems programming."}</p> },
+  { key: "SU", title: "SU", description: <p className="new-line">{"Scientific Unit. \nEngineers the primary payload and integrates hardware for orbital experiments."}</p> },
+  { key: "STR", title: "STR", description: <p className="new-line">{"Structural. \nDesign and mechanical engineering of the satellite's physical frame and housing."}</p> },
+  { key: "SYE", title: "SYE", description: <p className="new-line">{"Systems Engineering. \nManaging technical requirements and ensuring all subsystems work together."}</p> },
+  { key: "THE", title: "THE", description: <p className="new-line">{"Thermal Control. \nRegulates the satellite's temperature to protect it from the harsh environment of space."}</p> },
 ];
 
 const modules = import.meta.glob("/src/pages/Members-page/members/**/*.js");

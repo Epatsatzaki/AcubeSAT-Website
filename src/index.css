@@ -67,3 +67,9 @@ html {
 .animate-marquee-slow:hover {
   animation-play-state: paused;
 }
+
+/* This tells the browser to treat \n as a real line break */
+.new-line {
+  white-space: pre-line;
+  text-align: center; /* Optional: keeps it centered like your image */
+}
