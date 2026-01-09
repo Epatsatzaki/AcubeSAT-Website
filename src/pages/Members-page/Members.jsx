@@ -8,7 +8,7 @@ const subsystemConfig = [
   { key: "COMMS", title: "COMMS", description: "Communication system for data transmission." },
   { key: "IT", title: "IT", description: "Information Technology and infrastructure." },
   { key: "MRK", title: "MRK", description: "Marketing and outreach team." },
-  { key: "OBC", title: "OBC", description: "On-Board Computer hardware." },
+  { key: "OBC", title: "OBC", description: "On-Board Computer Electronics." },
   { key: "OBSW", title: "OBSW", description: "On-Board Software development." },
   { key: "SU", title: "SU", description: "Scientific Unit / Payload." },
   { key: "STR", title: "STR", description: "Structures and mechanical design." },
