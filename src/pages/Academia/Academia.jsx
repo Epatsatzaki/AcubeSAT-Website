@@ -271,7 +271,7 @@ const Academia = () => {
               
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 transition-colors">
-                  Litsardakis Laboratory
+                  Electrotechnical Materials Laboratory
                 </h3>
                 <div className="space-y-1 mb-6">
                   <p className="text-xs font-bold text-blue-500 dark:text-blue-400 uppercase tracking-wider flex items-center gap-2">
