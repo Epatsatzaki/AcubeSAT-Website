@@ -78,7 +78,7 @@ const categories = [
       {
         title: "Fundraising & Sponsorship Manager",
         description: "Secure the future of AcubeSAT by managing sponsor partnerships, drafting grant proposals, and identifying new funding opportunities to keep our mission on the launchpad.",
-        link: "/positions/fundraising-coordinator"
+        link: "/positions/fundraising"
       },
       {
         title: "Social Media & Public Relations",

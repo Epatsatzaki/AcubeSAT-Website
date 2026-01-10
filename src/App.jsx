@@ -11,13 +11,22 @@ import About from './pages/About/About';
 import Members from './pages/Members-page/Members';
 import Sponsors from './pages/Sponsors-page/Sponsors';
 import Academia from './pages/Academia/Academia';
-import Join from './pages/Join/Join'; // This MUST be the grid list
+import Join from './pages/Join/Join';
 
 // Position Detail Components
 import ADCS from './pages/Join/positions/ADCS';
-import BIO from './pages/Join/positions/BIO';
+import COPSFPGA from './pages/Join/positions/COPS-FPGA';
 import COPS from './pages/Join/positions/COPS';
-// ... import others as needed
+import MECH from './pages/Join/positions/MECH';
+import MRKContentCreator from './pages/Join/positions/MRK-ContentCreator';
+import MRKFR from './pages/Join/positions/MRK-FR';
+import MRKPR from './pages/Join/positions/MRK-PR';
+import OBCHW from './pages/Join/positions/OBC-HW';
+import OBSWEmbeddedSW from './pages/Join/positions/OBSW-EmbeddedSW';
+import STR from './pages/Join/positions/STR';
+import SUBIO from './pages/Join/positions/SU-BIO';
+import SYE from './pages/Join/positions/SYE';
+import THE from './pages/Join/positions/THE';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -41,16 +50,33 @@ function App() {
             <Route path="/academia" element={<Academia />} />
             <Route path="/members" element={<Members />} />
             <Route path="/sponsors" element={<Sponsors />} />
-
-            {/* THE JOIN LIST - Ensure this is unique */}
             <Route path="/join" element={<Join />} />
 
-            {/* THE POSITION DETAILS - Use a clear sub-path */}
-            <Route path="/positions/telecommunications-engineer" element={<COPS />} />
+            {/* Position Details Mapping */}
+            {/* Electronics, Flight Software & Control */}
             <Route path="/positions/adcs-engineer" element={<ADCS />} />
-            <Route path="/positions/biological-engineer" element={<BIO />} />
+            <Route path="/positions/embedded-software-engineer" element={<OBSWEmbeddedSW />} />
+            <Route path="/positions/hardware-engineer" element={<OBCHW />} />
+
+            {/* Science Unit & Mechatronics */}
+            <Route path="/positions/biological-engineer" element={<SUBIO />} />
+            <Route path="/positions/mechatronics-engineer" element={<MECH />} />
+
+            {/* Systems, Structures & Thermal Design */}
+            <Route path="/positions/structural-engineer" element={<STR />} />
+            <Route path="/positions/thermal-engineer" element={<THE />} />
+            <Route path="/positions/systems-aiv-engineer" element={<SYE />} />
+
+            {/* Communications & Mission Operations */}
+            <Route path="/positions/fpga-engineer" element={<COPSFPGA />} />
+            <Route path="/positions/telecommunications-engineer" element={<COPS />} />
+
+            {/* Marketing, Outreach & Fundraising */}
+            <Route path="/positions/fundraising" element={<MRKFR />} />
+            <Route path="/positions/pr-outreach" element={<MRKPR />} />
+            <Route path="/positions/creative-content" element={<MRKContentCreator />} />
             
-            {/* Catch-all to prevent blank screens on typos */}
+            {/* Catch-all */}
             <Route path="*" element={<Join />} />
           </Routes>
         </main>
