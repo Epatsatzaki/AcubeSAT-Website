@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom'; 
 
 const categories = [
   {
@@ -7,17 +8,17 @@ const categories = [
       {
         title: "Attitude Determination and Control Engineer",
         description: "Develop the navigational core of AcubeSAT. Responsible for stabilizing the spacecraft and handling attitude determination to establish a reliable downlink with the Ground Station.",
-        link: "https://acubesat.spacedot.gr/positions/adcs-engineer/"
+        link: "/positions/adcs-engineer" 
       },
       {
         title: "Embedded Software Engineer",
         description: "Develop the low-level software infrastructure and resource-efficient firmware that controls the nanosatellite's core functionality.",
-        link: "https://acubesat.spacedot.gr/positions/embedded-software-engineer/"
+        link: "/positions/embedded-software-engineer" 
       },
       {
         title: "Hardware Engineer",
         description: "Design and implement electronic systems, PCBs, and digital communication protocols while ensuring reliability in the space environment.",
-        link: "https://acubesat.spacedot.gr/positions/hardware-engineer/"
+        link: "/positions/hardware-engineer" 
       }
     ]
   },
@@ -27,12 +28,12 @@ const categories = [
       {
         title: "Biological Engineer",
         description: "Design and perform high-throughput biological experiments in-orbit using a novel autonomous and miniaturized biological laboratory.",
-        link: "https://acubesat.spacedot.gr/positions/biological-engineer/"
+        link: "/positions/biological-engineer" 
       },
       {
         title: "Mechatronics Engineer",
         description: "Bridge engineering disciplines to develop solutions for the Payload, including imaging, fluidics, and lab-on-a-chip technologies.",
-        link: "https://acubesat.spacedot.gr/positions/mechatronics-engineer/"
+        link: "/positions/mechatronics-engineer" 
       }
     ]
   },
@@ -42,17 +43,17 @@ const categories = [
       {
         title: "Structural Engineer",
         description: "Lead the development of the satellite's physical architecture, transforming concepts into reality through prototype development and mockups.",
-        link: "https://acubesat.spacedot.gr/positions/structural-engineer/"
+        link: "/positions/structural-engineer" 
       },
       {
         title: "Thermal Engineer",
         description: "Perform detailed thermal analyses and physical tests to ensure all components remain within designated temperature limits.",
-        link: "https://acubesat.spacedot.gr/positions/thermal-engineer/"
+        link: "/positions/thermal-engineer" 
       },
       {
         title: "Systems Engineering — AIV Engineer",
         description: "Coordinate all subsystems and lead the Manufacturing, Assembly, Integration, and Verification (MAIV) phase of the mission.",
-        link: "https://acubesat.spacedot.gr/positions/systems-aiv-engineer/"
+        link: "/positions/systems-aiv-engineer" 
       }
     ]
   },
@@ -62,12 +63,12 @@ const categories = [
       {
         title: "FPGA Engineer",
         description: "Design hardware logic for the COMMS subsystem to transfer large volumes of scientific and diagnostic data between the satellite and Earth.",
-        link: "https://acubesat.spacedot.gr/positions/fpga-engineer/"
+        link: "/positions/fpga-engineer" 
       },
       {
         title: "Telecommunications & Operations Engineer",
         description: "Maintain ground mission control software and implement Telemetry & Telecommand services to ensure smooth operations in orbit.",
-        link: "https://acubesat.spacedot.gr/positions/telecommunications-engineer/"
+        link: "/positions/telecommunications-engineer" 
       }
     ]
   },
@@ -77,17 +78,17 @@ const categories = [
       {
         title: "Fundraising & Sponsorship Manager",
         description: "Secure the future of AcubeSAT by managing sponsor partnerships, drafting grant proposals, and identifying new funding opportunities to keep our mission on the launchpad.",
-        link: "https://acubesat.spacedot.gr/positions/fundraising-coordinator/"
+        link: "/positions/fundraising-coordinator"
       },
       {
         title: "Social Media & Public Relations",
         description: "Craft the mission's voice across digital platforms. Manage our community presence, write press releases, and engage with the global space community and media outlets.",
-        link: "https://acubesat.spacedot.gr/positions/pr-outreach/"
+        link: "/positions/pr-outreach" 
       },
       {
         title: "Creative Content Creator",
         description: "The visual heartbeat of SpaceDot. We are looking for graphic designers, videographers, and photographers to document our progress and create high-impact mission visuals.",
-        link: "https://acubesat.spacedot.gr/positions/creative-content/"
+        link: "/positions/creative-content" 
       }
     ]
   }
@@ -100,7 +101,7 @@ const Join = () => {
         <title>Join Us | AcubeSAT</title>
       </Helmet>
 
-      {/* --- EPIC HERO SECTION --- */}
+      {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <img 
           src="/images/backgrounds/joinUs.jpg" 
@@ -119,7 +120,6 @@ const Join = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {/* Intro Text */}
         <div className="text-center mb-16">
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Our recruitment calls are open all-year long. Explore our subsystems 
@@ -135,11 +135,10 @@ const Join = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {category.positions.map((pos, posIdx) => (
-                <a 
+                /* Changed <a> to <Link> and href to to */
+                <Link 
                   key={posIdx}
-                  href={pos.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  to={pos.link} 
                   className="flex flex-col h-full bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border border-transparent hover:border-primary-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
                 >
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -154,14 +153,14 @@ const Join = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
         ))}
       </div>
 
-      {/* --- CANDID BOTTOM SECTION --- */}
+      {/* Bottom Section */}
       <div className="relative mt-12 py-32 overflow-hidden">
         <img 
           src="/images/backgrounds/joinUsBottom.jpg" 

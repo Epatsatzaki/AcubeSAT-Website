@@ -1,53 +1,31 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import Header from './components/common/Header'
-import Footer from './components/common/Footer'
-import Home from './pages/Home/Home'
-import About from './pages/About/About'
-import Members from './pages/Members-page/Members'
-import Sponsors from './pages/Sponsors-page/Sponsors'
-import Academia from './pages/Academia/Academia'
-import Join from './pages/Join/Join'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-// Enhanced Scroll to top component
+// Common Components
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+
+// Page Components
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Members from './pages/Members-page/Members';
+import Sponsors from './pages/Sponsors-page/Sponsors';
+import Academia from './pages/Academia/Academia';
+import Join from './pages/Join/Join'; // This MUST be the grid list
+
+// Position Detail Components
+import ADCS from './pages/Join/positions/ADCS';
+import BIO from './pages/Join/positions/BIO';
+import COPS from './pages/Join/positions/COPS';
+// ... import others as needed
+
 const ScrollToTop = () => {
-  const { pathname, hash } = useLocation()
-
+  const { pathname } = useLocation();
   useEffect(() => {
-    // Always scroll to top on route change, but delay slightly for page transition
-    const timer = setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'instant' // Use 'instant' for immediate scroll
-      })
-    }, 10)
-
-    return () => clearTimeout(timer)
-  }, [pathname]) // Only trigger on pathname change, not hash changes
-
-  // Handle hash navigation separately (for home page sections)
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace('#', ''))
-      if (element) {
-        setTimeout(() => {
-          const navbar = document.querySelector('header')
-          const navbarHeight = navbar ? navbar.offsetHeight : 80
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-          const offsetPosition = elementPosition - navbarHeight - 20
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          })
-        }, 100)
-      }
-    }
-  }, [hash])
-
-  return null
-}
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 function App() {
   return (
@@ -57,18 +35,29 @@ function App() {
         <Header />
         <main className="flex-grow">
           <Routes>
+            {/* Standard Pages */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/academia" element={<Academia />} />
             <Route path="/members" element={<Members />} />
             <Route path="/sponsors" element={<Sponsors />} />
-            <Route path="/academia" element={<Academia />} />
+
+            {/* THE JOIN LIST - Ensure this is unique */}
             <Route path="/join" element={<Join />} />
+
+            {/* THE POSITION DETAILS - Use a clear sub-path */}
+            <Route path="/positions/telecommunications-engineer" element={<COPS />} />
+            <Route path="/positions/adcs-engineer" element={<ADCS />} />
+            <Route path="/positions/biological-engineer" element={<BIO />} />
+            
+            {/* Catch-all to prevent blank screens on typos */}
+            <Route path="*" element={<Join />} />
           </Routes>
         </main>
         <Footer />
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
