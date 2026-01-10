@@ -5,27 +5,27 @@ const PositionTemplate = ({
   overview, 
   descriptionPoints, 
   skillsTitle, 
-  skills 
+  skills,
+  notes
 }) => {
   return (
     <div className="min-h-screen pb-20 font-sans text-slate-900">
-    {/* Header Section */}
-    <div className="bg-[#0f172a] text-white pt-32 pb-16 px-6"> 
-    {/* pt-32 ensures it clears the navbar, pb-16 keeps the bottom balanced */}
-    <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-2 mb-4">
+      {/* Header Section */}
+      <div className="bg-[#0f172a] text-white pt-32 pb-16 px-6"> 
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-4">
             <span className="bg-blue-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">
-                Open Position
+              Open Position
             </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
             {title}
-        </h1>
-        <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          </h1>
+          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
             {subtitle}
-        </p>
-    </div>
-    </div>
+          </p>
+        </div>
+      </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-12">
         {/* Overview Section */}
@@ -69,6 +69,16 @@ const PositionTemplate = ({
             ))}
           </div>
         </section>
+
+        {/* New Notes/Hacker Section */}
+        {notes && (
+          <section className="mb-12 p-8 rounded-xl bg-blue-50 border-l-8 border-blue-600">
+            <h2 className="text-2xl font-bold mb-4 text-blue-900">Why You?</h2>
+            <div className="text-slate-700 leading-relaxed space-y-4 whitespace-pre-line">
+              {notes}
+            </div>
+          </section>
+        )}
 
         {/* Application Button */}
         <div className="text-center pt-8">

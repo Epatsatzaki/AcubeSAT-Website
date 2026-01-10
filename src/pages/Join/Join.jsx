@@ -66,9 +66,14 @@ const categories = [
         link: "/positions/fpga-engineer" 
       },
       {
-        title: "Telecommunications & Operations Engineer",
-        description: "Maintain ground mission control software and implement Telemetry & Telecommand services to ensure smooth operations in orbit.",
+        title: "Telecommunications Engineer",
+        description: "Design, test, and troubleshoot RF hardware and signal processing schemes to establish reliable satellite-to-ground links.",
         link: "/positions/telecommunications-engineer" 
+      },
+      {
+        title: "Mission Operations Engineer",
+        description: "Maintain ground mission control software (YAMCS) and automate mission procedures to ensure smooth operations in orbit.",
+        link: "/positions/operations-engineer" 
       }
     ]
   },
@@ -87,7 +92,7 @@ const categories = [
       },
       {
         title: "Creative Content Creator",
-        description: "The visual heartbeat of SpaceDot. We are looking for graphic designers, videographers, and photographers to document our progress and create high-impact mission visuals.",
+        description: "The visual heartbeat of SpaceDot. We are looking for graphic designers, videographers, and photographers and editors to document our progress and create high-impact mission visuals.",
         link: "/positions/creative-content" 
       }
     ]

@@ -15,24 +15,37 @@ import Join from './pages/Join/Join';
 
 // Position Detail Components
 import ADCS from './pages/Join/positions/ADCS';
-import COPSFPGA from './pages/Join/positions/COPS-FPGA';
-import COPS from './pages/Join/positions/COPS';
+import FPGA from './pages/Join/positions/COPS-FPGA';
+import OPS from './pages/Join/positions/COPS-OPS';
+import COMMS from './pages/Join/positions/COPS-COMMS';
 import MECH from './pages/Join/positions/MECH';
-import MRKContentCreator from './pages/Join/positions/MRK-ContentCreator';
-import MRKFR from './pages/Join/positions/MRK-FR';
-import MRKPR from './pages/Join/positions/MRK-PR';
-import OBCHW from './pages/Join/positions/OBC-HW';
-import OBSWEmbeddedSW from './pages/Join/positions/OBSW-EmbeddedSW';
+import ContentCreator from './pages/Join/positions/MRK-ContentCreator';
+import FR from './pages/Join/positions/MRK-FR';
+import PR from './pages/Join/positions/MRK-PR';
+import HW from './pages/Join/positions/OBC-HW';
+import EmbeddedSW from './pages/Join/positions/OBSW-EmbeddedSW';
 import STR from './pages/Join/positions/STR';
-import SUBIO from './pages/Join/positions/SU-BIO';
+import BIO from './pages/Join/positions/SU-BIO';
 import SYE from './pages/Join/positions/SYE';
 import THE from './pages/Join/positions/THE';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // A 0ms timeout pushes the execution to the end of the event loop
+    // ensuring the new page content is actually there before scrolling
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
+
   return null;
 };
 
@@ -55,11 +68,11 @@ function App() {
             {/* Position Details Mapping */}
             {/* Electronics, Flight Software & Control */}
             <Route path="/positions/adcs-engineer" element={<ADCS />} />
-            <Route path="/positions/embedded-software-engineer" element={<OBSWEmbeddedSW />} />
-            <Route path="/positions/hardware-engineer" element={<OBCHW />} />
+            <Route path="/positions/embedded-software-engineer" element={<EmbeddedSW />} />
+            <Route path="/positions/hardware-engineer" element={<HW />} />
 
             {/* Science Unit & Mechatronics */}
-            <Route path="/positions/biological-engineer" element={<SUBIO />} />
+            <Route path="/positions/biological-engineer" element={<BIO />} />
             <Route path="/positions/mechatronics-engineer" element={<MECH />} />
 
             {/* Systems, Structures & Thermal Design */}
@@ -68,13 +81,14 @@ function App() {
             <Route path="/positions/systems-aiv-engineer" element={<SYE />} />
 
             {/* Communications & Mission Operations */}
-            <Route path="/positions/fpga-engineer" element={<COPSFPGA />} />
-            <Route path="/positions/telecommunications-engineer" element={<COPS />} />
+            <Route path="/positions/fpga-engineer" element={<FPGA />} />
+            <Route path="/positions/telecommunications-engineer" element={<COMMS />} />
+            <Route path="/positions/operations-engineer" element={<OPS />} />
 
             {/* Marketing, Outreach & Fundraising */}
-            <Route path="/positions/fundraising" element={<MRKFR />} />
-            <Route path="/positions/pr-outreach" element={<MRKPR />} />
-            <Route path="/positions/creative-content" element={<MRKContentCreator />} />
+            <Route path="/positions/fundraising" element={<FR />} />
+            <Route path="/positions/pr-outreach" element={<PR />} />
+            <Route path="/positions/creative-content" element={<ContentCreator />} />
             
             {/* Catch-all */}
             <Route path="*" element={<Join />} />
