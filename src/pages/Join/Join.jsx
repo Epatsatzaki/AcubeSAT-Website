@@ -96,7 +96,7 @@ const categories = [
 
 const Join = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen transition-colors duration-200">
       <Helmet>
         <title>Join Us | AcubeSAT</title>
       </Helmet>

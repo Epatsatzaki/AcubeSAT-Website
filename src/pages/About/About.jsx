@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen transition-colors duration-200">
       <Helmet>
         <title>About | AcubeSAT</title>
       </Helmet>

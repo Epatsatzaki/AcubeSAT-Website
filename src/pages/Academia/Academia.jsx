@@ -171,8 +171,7 @@ const Academia = () => {
   ];
 
   return (
-    // UPDATED: Main background color to match the bar (White / Gray-900)
-    <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="pt-16 min-h-screen transition-colors duration-200">
       <Helmet>
         <title>Academia | AcubeSAT</title>
       </Helmet>

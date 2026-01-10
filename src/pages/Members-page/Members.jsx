@@ -148,7 +148,7 @@ const Members = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="pt-16 min-h-screen transition-colors duration-200">
       <Helmet>
         <title>Members | AcubeSAT</title>
       </Helmet>
