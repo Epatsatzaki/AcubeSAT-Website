@@ -21,7 +21,8 @@ const ADCS = () => {
       "UART, I2C, SPI, CAN protocols",
       "Digital design and interface ICs",
       "PCB design techniques (KiCad)"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=ADCS+Engineer`
   };
 
   return <PositionTemplate {...data} />;

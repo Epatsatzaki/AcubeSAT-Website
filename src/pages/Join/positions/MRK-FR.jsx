@@ -23,7 +23,8 @@ const FR = () => {
       "Organized and capable of managing contacts/leads",
       "Prior experience in fundraising or sales (Optional)",
       "A passion for seeing a student project succeed"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Fundraising`
   };
 
   return <PositionTemplate {...data} />;

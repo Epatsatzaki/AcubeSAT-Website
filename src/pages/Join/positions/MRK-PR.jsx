@@ -23,7 +23,8 @@ const PR = () => {
       "Persistence and a positive attitude",
       "Interest in space (even if you're just starting to learn!)",
       "Organized and reliable with time"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Outreach`
   };
 
   return <PositionTemplate {...data} />;

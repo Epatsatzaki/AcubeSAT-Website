@@ -24,7 +24,8 @@ const OPS = () => {
       "Strong documentation skills in English",
       "Experience with YAMCS or mission control software (Optional)",
       "Willingness to learn complex operations concepts"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Mission+Operations+Engineer`
   };
 
   return <PositionTemplate {...data} />;

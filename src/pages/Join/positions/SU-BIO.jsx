@@ -28,6 +28,7 @@ const BIO = () => {
       "Experience with microfluidics (Optional)",
       "Prototyping skills (3D printing) or programming (Optional)",
     ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Biological+Engineer`
   };
 
   return <PositionTemplate {...data} />;

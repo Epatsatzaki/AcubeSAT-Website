@@ -27,7 +27,8 @@ const FPGA = () => {
       "Experience with FPGA design verification (Optional)",
       "Experience with Digital Electronics (Optional)",
       "Experience with Digital Signal Processing (Optional)"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=FPGA+Engineer`
   };
 
   return <PositionTemplate {...data} />;

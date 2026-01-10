@@ -1,12 +1,12 @@
 const PositionTemplate = ({ 
-  date, 
   title, 
   subtitle, 
   overview, 
   descriptionPoints, 
   skillsTitle, 
-  skills,
-  notes
+  skills, 
+  notes,
+  applicationLink 
 }) => {
   return (
     <div className="min-h-screen pb-20 font-sans text-slate-900">
@@ -70,7 +70,7 @@ const PositionTemplate = ({
           </div>
         </section>
 
-        {/* New Notes/Hacker Section */}
+        {/* Why You? Section */}
         {notes && (
           <section className="mb-12 p-8 rounded-xl bg-blue-50 border-l-8 border-blue-600">
             <h2 className="text-2xl font-bold mb-4 text-blue-900">Why You?</h2>
@@ -83,7 +83,7 @@ const PositionTemplate = ({
         {/* Application Button */}
         <div className="text-center pt-8">
           <a 
-            href="https://forms.gle/your-link-here" 
+            href={applicationLink} 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg shadow-blue-200 uppercase tracking-wide text-sm"

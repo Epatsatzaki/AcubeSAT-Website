@@ -26,7 +26,8 @@ const COMMS = () => {
       "Experience with RF electronics / PCB design (Optional)",
       "Ham radio operator license or experience (Optional)",
       "Basic RF circuits knowledge (Optional)"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Telecommunications+Engineer`
   };
 
   return <PositionTemplate {...data} />;

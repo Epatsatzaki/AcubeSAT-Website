@@ -27,6 +27,7 @@ const SYE = () => {
       "LaTeX and technical report composition (Optional)",
       "Familiarity with CAD Software or Git (Optional)"
     ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Systems+Engineering+--+AIV+Engineer`
   };
 
   return <PositionTemplate {...data} />;

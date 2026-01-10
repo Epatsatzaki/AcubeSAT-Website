@@ -27,7 +27,8 @@ const HW = () => {
       "Experience with ARM, AVR, PIC, or Arduino (Optional)",
       "Knowledge of power systems and battery management (Optional)",
       "Understanding of EMC principles and environmental testing (Optional)"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=HW+Engineer`
   };
 
   return <PositionTemplate {...data} />;

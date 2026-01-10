@@ -27,7 +27,8 @@ const EmbeddedSW = () => {
       "Capable of navigating previously unknown technical fields",
       "Good English written and oral skills",
       "Familiarity with digital design or FPGAs (Optional)"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Embedded+SW+Engineer`
   };
 
   return <PositionTemplate {...data} />;

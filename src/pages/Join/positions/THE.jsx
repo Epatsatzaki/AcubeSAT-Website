@@ -25,7 +25,8 @@ const THE = () => {
       "Capable of working well in multidisciplinary groups of peers",
       "Capable of navigating previously unknown fields",
       "A strong sense of commitment and responsibility"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Thermal+Engineer`
   };
 
   return <PositionTemplate {...data} />;

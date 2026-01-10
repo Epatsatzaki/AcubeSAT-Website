@@ -30,7 +30,9 @@ const STR = () => {
       "Experience with vibration testing setup and execution (Optional)",
       "Background in prototype development for proof-of-concept validation (Optional)"
     ],
-    
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Structural+Engineer`
+  
+    ,
     notes: "If you don’t have a traditional background, don’t worry—some of our ideal candidates don’t either. What matters is your knack for creative problem-solving, hands-on experience in design and manufacturing, and an understanding of the constraints and possibilities of unconventional setups. Tell us about something you’ve hacked! Whether it’s building a DIY centrifuge, making ice cream with liquid nitrogen, or repurposing everyday materials for a clever fix, we want to see how you think outside the box and make things work."
   };
 

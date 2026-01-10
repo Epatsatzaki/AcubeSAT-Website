@@ -25,7 +25,8 @@ const ContentCreator = () => {
       "A creative eye for detail",
       "Ability to work independently on artistic projects",
       "Eagerness to experiment and try new styles"
-    ]
+    ],
+    applicationLink: `https://surveys.spacedot.gr/889757?newtest=Y&lang=en&position=Marketing`
   };
 
   return <PositionTemplate {...data} />;
