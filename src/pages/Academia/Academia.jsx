@@ -188,8 +188,7 @@ const Academia = () => {
         </div>
       </div>
 
-      {/* UPDATED: Bar background exactly matches the parent background */}
-      <div className="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b-2 border-black dark:border-gray-700 py-4">
+      <div className="sticky top-16 z-40 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md border-b-2 border-black dark:border-gray-700 py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-center flex-wrap gap-3">
           <button
             onClick={() => scrollToSection('team-labs')}
@@ -226,16 +225,21 @@ const Academia = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
-                <div className="absolute inset-0 flex items-center justify-center text-blue-300 dark:text-slate-600 italic font-medium">
-                  [Laboratory Workspace Photo]
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-lg bg-[#A5C9FF] dark:bg-blue-600 text-blue-900 dark:text-white text-[10px] font-black uppercase tracking-widest shadow-sm">
-                    Main Hub
-                  </span>
-                </div>
-              </div>
+  <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
+    
+    {/* ACTUAL IMAGE REPLACING THE PLACEHOLDER */}
+    <img 
+      src="public/images/LabPhotos/electronicsLab.png" 
+      alt="Electronics Laboratory Workspace" 
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+
+    <div className="absolute top-4 left-4">
+      <span className="px-3 py-1 rounded-lg bg-[#A5C9FF] dark:bg-blue-600 text-blue-900 dark:text-white text-[10px] font-black uppercase tracking-widest shadow-sm">
+        Main Hub
+      </span>
+    </div>
+  </div>
               
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 transition-colors">
@@ -248,6 +252,9 @@ const Academia = () => {
                   </p>
                   <p className="text-sm font-medium text-slate-500 dark:text-slate-400 ml-6">
                     Electronics Dept. | Building D, 4th Floor
+                  </p>
+                  <p className="text-xs font-bold text-slate-400 dark:text-slate-500 tracking-widest ml-6 pt-1">
+                    Lab Director: A.Chatzopoulos
                   </p>
                 </div>
                 <p className="text-slate-600 dark:text-blue-100/70 leading-relaxed italic border-l-4 border-[#A5C9FF] dark:border-blue-500/40 pl-4">
@@ -279,6 +286,9 @@ const Academia = () => {
                   </p>
                   <p className="text-sm font-medium text-slate-500 dark:text-slate-400 ml-6">
                     Building D, Basement
+                  </p>
+                  <p className="text-xs font-bold text-slate-400 dark:text-slate-500 tracking-widest ml-6 pt-1">
+                    Lab Director: G.Litsardakis
                   </p>
                 </div>
                 <p className="text-slate-600 dark:text-blue-100/70 leading-relaxed italic border-l-4 border-[#A5C9FF] dark:border-blue-500/40 pl-4">

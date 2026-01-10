@@ -148,7 +148,7 @@ const Sponsors = () => {
 
 
       {/* 2. MOVING BANNER SECTION */}
-      <div className="bg-white dark:bg-[#030712] border-y border-gray-100 dark:border-gray-800 py-10 overflow-hidden select-none">
+      <div className="bg-gray-200 dark:bg-[#030712] border-y border-gray-100 dark:border-gray-800 py-10 overflow-hidden select-none">
   <div className="flex whitespace-nowrap animate-marquee-slow">
     {[...Array(10)].map((_, i) => (
       <div key={i} className="flex items-center">

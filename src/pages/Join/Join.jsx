@@ -144,7 +144,7 @@ const Join = () => {
                 <Link 
                   key={posIdx}
                   to={pos.link} 
-                  className="flex flex-col h-full bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border border-transparent hover:border-primary-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+                  className="flex flex-col h-full bg-gray-200 dark:bg-gray-800 p-8 rounded-2xl border border-transparent hover:border-primary-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
                 >
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {pos.title}

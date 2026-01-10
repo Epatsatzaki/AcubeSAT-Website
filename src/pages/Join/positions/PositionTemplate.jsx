@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 const PositionTemplate = ({ 
   title, 
   subtitle, 
@@ -9,12 +10,15 @@ const PositionTemplate = ({
   applicationLink 
 }) => {
   return (
-    <div className="min-h-screen pb-20 font-sans text-slate-900">
-      {/* Header Section */}
+    <div className="min-h-screen pb-20 font-sans text-slate-900 bg-gray-100">
+        <Helmet>
+            <title>{title}| AcubeSAT</title>
+        </Helmet>
+      {/* Header Section - Restored to original dark tone */}
       <div className="bg-[#0f172a] text-white pt-32 pb-16 px-6"> 
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 mb-4">
-            <span className="bg-blue-600 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">
+            <span className="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">
               Open Position
             </span>
           </div>
@@ -34,12 +38,12 @@ const PositionTemplate = ({
             <span className="w-8 h-1 bg-blue-600 rounded-full"></span>
             Overview
           </h2>
-          <p className="text-lg text-slate-700 leading-relaxed border-l-4 border-slate-100 pl-6 italic">
+          <p className="text-lg text-slate-700 leading-relaxed border-l-4 border-slate-300 pl-6 italic">
             {overview}
           </p>
         </section>
 
-        <hr className="my-10 border-slate-100" />
+        <hr className="my-10 border-slate-300" />
 
         {/* Position Description */}
         <section className="mb-12">
@@ -54,15 +58,15 @@ const PositionTemplate = ({
           </ul>
         </section>
 
-        {/* Preferred Skills */}
-        <section className="bg-slate-50 p-8 rounded-xl border border-slate-200 mb-12">
+        {/* Preferred Skills - White background to pop against the gray page */}
+        <section className="bg-white p-8 rounded-xl border border-slate-200 mb-12 shadow-sm">
           <h2 className="text-2xl font-bold mb-4 text-slate-800">Preferred Skills and Education</h2>
-          <p className="text-slate-600 mb-6 italic text-sm">
+          <p className="text-slate-500 mb-6 italic text-sm">
             {skillsTitle}
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {skills.map((skill, i) => (
-              <div key={i} className="flex items-center gap-3 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+              <div key={i} className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg border border-slate-100 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                 <span className="text-sm font-medium text-slate-700">{skill}</span>
               </div>
@@ -72,7 +76,7 @@ const PositionTemplate = ({
 
         {/* Why You? Section */}
         {notes && (
-          <section className="mb-12 p-8 rounded-xl bg-blue-50 border-l-8 border-blue-600">
+          <section className="mb-12 p-8 rounded-xl bg-blue-50 border-l-8 border-blue-600 shadow-sm">
             <h2 className="text-2xl font-bold mb-4 text-blue-900">Why You?</h2>
             <div className="text-slate-700 leading-relaxed space-y-4 whitespace-pre-line">
               {notes}
