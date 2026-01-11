@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.112.0",
-    "@react-three/fiber": "^8.16.5",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "flowbite": "^2.2.0",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^12.23.26",
