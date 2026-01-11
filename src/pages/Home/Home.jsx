@@ -354,7 +354,7 @@ const Home = () => {
                 <div className="md:w-1/3">
                   <div className="relative overflow-hidden rounded-2xl border-2 border-[#D99000]/20 dark:border-purple-300/40 h-full min-h-[200px]">
                     <img
-                      src="/images/backgrounds/home-lab-on-a-chip.png"
+                      src="/images/interractiveDiagram/lab-on-a-chip.png"
                       alt="AcubeSAT Laboratory Platform"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
