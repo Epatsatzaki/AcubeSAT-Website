@@ -227,7 +227,6 @@ const Academia = () => {
             <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
   <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
     
-    {/* ACTUAL IMAGE REPLACING THE PLACEHOLDER */}
     <img 
       src="public/images/LabPhotos/electronicsLab.png" 
       alt="Electronics Laboratory Workspace" 
@@ -265,9 +264,11 @@ const Academia = () => {
 
             <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
-                <div className="absolute inset-0 flex items-center justify-center text-blue-300 dark:text-slate-600 italic font-medium">
-                  [Clean Room Facility Photo]
-                </div>
+                <img 
+                  src="public/images/LabPhotos/cleanroom.jpg" 
+                  alt="Clean Room Facility" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 rounded-lg bg-emerald-400 dark:bg-emerald-600 text-emerald-900 dark:text-white text-[10px] font-black uppercase tracking-widest shadow-sm">
                     Clean Room
