@@ -265,7 +265,7 @@ const Academia = () => {
             <div className="group relative overflow-hidden rounded-3xl border-2 border-[#A5C9FF]/40 dark:border-blue-500/20 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
                 <img 
-                  src="public/images/LabPhotos/cleanroom.jpg" 
+                  src="/images/LabPhotos/cleanroom.jpg" 
                   alt="Clean Room Facility" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />

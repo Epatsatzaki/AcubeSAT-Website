@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   return (
-    <div className="min-h-screen transition-colors duration-200 dark:bg-[#030712]">
+    <div className="min-h-screen transition-colors duration-200 bg-white dark:bg-[#030712]">
       <Helmet>
         <title>About | AcubeSAT</title>
       </Helmet>
@@ -20,9 +20,9 @@ const About = () => {
 
             {/* LEFT: TITLE */}
             <div className="w-full lg:w-1/2 z-10">
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight leading-[1.1]">
+              <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
                 AcubeSAT: <br />
-                <span className="text-blue-600 dark:text-blue-500">SpaceDot’s</span> <br />
+                <span className="text-blue-700 dark:text-blue-500">SpaceDot’s</span> <br />
                 first project
               </h1>
             </div>
@@ -36,6 +36,7 @@ const About = () => {
                   min-w-[240px]
                   max-w-[720px]
                   rounded-full
+                  bg-slate-50 dark:bg-transparent
                 "
               >
                 <AcuteSatViewer />
@@ -45,14 +46,14 @@ const About = () => {
           </div>
 
           {/* DESCRIPTION BELOW BOTH */}
-          <div className="mt-12 max-w-4xl mx-auto text-center space-y-6 text-lg md:text-xl text-gray-600 dark:text-gray-300">
-            <p className="font-bold text-gray-900 dark:text-white">
+          <div className="mt-12 max-w-4xl mx-auto text-center space-y-6 text-lg md:text-xl text-slate-700 dark:text-gray-300">
+            <p className="font-bold text-slate-900 dark:text-white">
               The development of AcubeSAT started even before SpaceDot was born!
             </p>
 
             <p className="leading-relaxed">
               AcubeSAT is a{' '}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">
+              <span className="font-semibold text-blue-700 dark:text-blue-400">
                 3U+ CubeSat
               </span>{' '}
               (340.5x100x100 mm + tuna can) designed and developed by students
@@ -119,10 +120,10 @@ const About = () => {
         {/* Timeline Section */}
         <section id="timeline" className="mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Development Timeline
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
               Our journey from the first concept to launch preparation.
             </p>
           </div>
@@ -131,27 +132,27 @@ const About = () => {
 
         {/* FYS Programme Section — FULLY PRESERVED */}
         <section id="fys-programme" className="mt-20 mb-16">
-          <div className="relative overflow-hidden rounded-[2rem] bg-blue-50 dark:bg-[#0B1120]/80 border border-blue-200 dark:border-blue-500/20 backdrop-blur-sm shadow-xl transition-colors duration-300">
+          <div className="relative overflow-hidden rounded-[2rem] bg-slate-50 dark:bg-[#0B1120]/80 border border-slate-200 dark:border-blue-500/20 backdrop-blur-sm shadow-xl transition-colors duration-300">
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-blue-400/10 dark:bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
             <div className="relative p-8 md:p-12">
               <div className="flex flex-col lg:flex-row gap-12">
                 <div className="lg:w-2/5 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="h-8 w-1 bg-blue-600 dark:bg-blue-500 rounded-full"></div>
-                    <span className="text-blue-700 dark:text-blue-400 font-bold text-xs uppercase tracking-widest">
+                    <div className="h-8 w-1 bg-blue-700 dark:bg-blue-500 rounded-full"></div>
+                    <span className="text-blue-800 dark:text-blue-400 font-bold text-xs uppercase tracking-widest">
                       ESA Education Office
                     </span>
                   </div>
                   <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight uppercase italic leading-none mb-6">
                     The “Fly Your <br />
-                    <span className="text-blue-600 dark:text-blue-500">
+                    <span className="text-blue-700 dark:text-blue-500">
                       Satellite!”
                     </span>{' '}
                     <br />
                     Programme
                   </h2>
                   <div className="space-y-4 text-slate-700 dark:text-blue-100/80">
-                    <p className="text-base leading-relaxed italic border-l-4 border-blue-200 dark:border-blue-500/30 pl-4">
+                    <p className="text-base leading-relaxed italic border-l-4 border-slate-300 dark:border-blue-500/30 pl-4">
                       "Complementing academic knowledge with hands-on experience designing,
                       testing, and operating a spacecraft."
                     </p>
@@ -178,9 +179,9 @@ const About = () => {
                     ].map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-white/5 border border-blue-100 dark:border-white/10 shadow-sm transition-all hover:border-blue-400 dark:hover:border-blue-500/50"
+                        className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm transition-all hover:border-blue-400 dark:hover:border-blue-500/50"
                       >
-                        <div className="flex-shrink-0 w-2 h-2 mt-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_8px_rgba(37,99,235,0.4)]"></div>
+                        <div className="flex-shrink-0 w-2 h-2 mt-1.5 rounded-full bg-blue-700 dark:bg-blue-400 shadow-[0_0_8px_rgba(37,99,235,0.4)]"></div>
                         <span className="text-slate-800 dark:text-blue-100/90 text-sm font-semibold leading-snug">
                           {item}
                         </span>
@@ -188,7 +189,7 @@ const About = () => {
                     ))}
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-blue-100/50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-500/20">
+                  <div className="p-5 rounded-2xl bg-slate-200/50 dark:bg-blue-900/20 border border-slate-200 dark:border-blue-500/20">
                     <p className="text-xs md:text-sm text-slate-600 dark:text-blue-200/60 leading-relaxed font-medium">
                       As a cornerstone programme, it enables our team to operate under
                       professional aerospace standards, bridging the gap between academic
