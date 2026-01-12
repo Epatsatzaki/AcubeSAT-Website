@@ -1,7 +1,7 @@
 import React from 'react';
 import AcuteSatViewer from '../../components/3D/AcubeSATViewer';
-import VerticalTimeline from './VerticalTimeline';
-import InteractiveDiagram from './InteractiveDiagram';
+import VerticalTimeline from '../../components/dynamic/VerticalTimeline';
+import InteractiveDiagram from '../../components/dynamic/InteractiveDiagram';
 import { Helmet } from 'react-helmet-async';
 
 const About = () => {
