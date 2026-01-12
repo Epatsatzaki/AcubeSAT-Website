@@ -31,7 +31,7 @@ export default function AcuteSatViewer() {
     >
       <Canvas
         camera={{
-          position: [0, 0, 6],
+          position: [0.4, 0.4, 0.4],
           fov: 45
         }}
       >
