@@ -19,12 +19,12 @@ const InteractiveDiagram = () => {
       top: '54%', 
       left: '48%', 
       label: 'Lab-on-a-chip', 
-      img: 'public/images/interractiveDiagram/lab-on-a-chip.png', 
+      img: '/images/interractiveDiagram/lab-on-a-chip.png', 
       description: 'The core biological interface where micro-channels guide nutrients to cells, allowing for real-time monitoring of biological growth in microgravity.'
     },
     { 
       id: 3, 
-      top: '60%', 
+      top: '60.5%', 
       left: '48%', 
       label: 'Automated Fluidic System', 
       img: '/images/interractiveDiagram/fluidics.png', 
@@ -35,7 +35,7 @@ const InteractiveDiagram = () => {
       top: '65%', 
       left: '52%', 
       label: 'Autonomous Electronics System', 
-      img: 'public/images/interractiveDiagram/gkogopcb.png', 
+      img: '/images/interractiveDiagram/gkogopcb.png', 
       description: 'Responsible for power distribution, thermal regulation, and high-speed data acquisition. It acts as the primary interface between the payload and the satellite bus.'
     },
   ];
