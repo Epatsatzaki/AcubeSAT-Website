@@ -1,4 +1,3 @@
-import React from 'react';
 import AcuteSatViewer from '../../components/3D/AcubeSATViewer';
 import VerticalTimeline from '../../components/dynamic/VerticalTimeline';
 import InteractiveDiagram from '../../components/dynamic/InteractiveDiagram';

@@ -1,5 +1,9 @@
-# WebPage Template
+# SpaceDot Website
 
+Official website for the SpaceDot team, built to support its open-source
+mission and public presence.
+
+---
 ## Setup
 
 1. Clone the repository
@@ -17,7 +21,49 @@ npm run dev
 
 http://localhost:3000/
 
+## Common operations
 
+### Adding new members
+
+To add a new member, create a file in src/pages/Members-page/members. You can use the layout from other
+already existing members as a starting point.
+Portrait shots of members should be added in public/images/Members.
+
+### Adding new positions
+
+To add a new position, create a file in src/pages/Join/positions. After adding the file in the positions folder, add the position in src/pages/Join/Join.jsx, in the corresponding category. You can use the layout from other already existing positions from your subsystem as a starting point.
+
+### Adding new sponsors
+
+To add a new sponsor, create a file in the corresponding folder in src/pages/Sponsors-page/sponsors. You can use the layout from other already existing sponsors of the same category as a starting point.
+Logos of sponsors should be added in public/images/Sponsors.
+
+### Adding new publications
+
+To add a new publication, edit the src/pages/Academia/Academia.jsx file and add a new entry under the appropriate
+category. Make sure to keep the chronological sorting that already exists in the file.
+
+## Description
+This project is a React-based website built from the ground up with a focus on:
+
+- Maintainability
+
+- Clear project structure
+
+- Open-source collaboration
+
+- Modern frontend tooling
+
+The codebase is intended to be easy to extend and approachable for future
+contributors.
+
+## Tech Stack
+This project uses:
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Three.js/React Three Fiber
 
 ## Credits
 
@@ -30,37 +76,6 @@ community contribution in mind.
 
 - GitHub: https://github.com/Epatsatzaki
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
 ## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project is licensed under the MIT License.
+See the LICENSE file for details.
