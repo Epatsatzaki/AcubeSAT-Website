@@ -228,7 +228,7 @@ const Academia = () => {
   <div className="aspect-video w-full bg-[#F0F7FF] dark:bg-slate-800/50 relative overflow-hidden border-b border-[#A5C9FF]/20 dark:border-blue-500/10">
     
     <img 
-      src="public/images/LabPhotos/electronicsLab.png" 
+      src="/images/LabPhotos/electronicsLab.png" 
       alt="Electronics Laboratory Workspace" 
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
     />
