@@ -9,7 +9,8 @@ mission and public presence.
 1. Clone the repository
 
 2. Install dependencies:
-Run `npm audit` for details.
+> Requires Node.js v18 or higher. You can check with `node -v`.
+
 ```bash
 npm install
 ```
