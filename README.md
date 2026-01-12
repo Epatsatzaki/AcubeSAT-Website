@@ -1,4 +1,4 @@
-# SpaceDot Website
+# AcubeSAT Website
 
 Official website for the SpaceDot team, built to support its open-source
 mission and public presence.
