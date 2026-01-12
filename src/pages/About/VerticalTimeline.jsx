@@ -14,6 +14,7 @@ const timelineData = [
 ];
 
 const VerticalTimeline = () => {
+  const containerRef = useRef(null);
   const scrollableRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -33,6 +34,7 @@ const VerticalTimeline = () => {
     }
   });
 
+  // Prevent page scroll while scrolling inside timeline
   useEffect(() => {
     const el = scrollableRef.current;
     if (!el) return;
@@ -52,35 +54,56 @@ const VerticalTimeline = () => {
     return () => el.removeEventListener('wheel', handleWheel);
   }, []);
 
+  // 🔁 Reset timeline when it leaves the viewport
+  useEffect(() => {
+    const container = containerRef.current;
+    const scrollEl = scrollableRef.current;
+    if (!container || !scrollEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          scrollEl.scrollTo({ top: 0, behavior: "auto" });
+          setActiveIndex(0);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   const rocketTop = activeIndex * ROW_HEIGHT + ROW_HEIGHT / 2;
 
   return (
-    <div 
+    <div
+      ref={containerRef}
       className="relative w-full py-10 flex justify-center items-center bg-cover bg-center bg-fixed rounded-[2.5rem] overflow-hidden"
       style={{ backgroundImage: "url('/images/sky.jpg')" }}
     >
       <div className="absolute inset-0 bg-slate-950/40 z-0" />
 
-      <div 
+      <div
         ref={scrollableRef}
         className="relative z-10 w-full max-w-5xl h-[600px] overflow-y-auto overflow-x-hidden bg-transparent scroll-smooth hide-scrollbar"
         style={{ scrollSnapType: 'y mandatory' }}
       >
-        <div 
-          className="px-6 relative" 
+        <div
+          className="px-6 relative"
           style={{ height: `${timelineData.length * ROW_HEIGHT}px` }}
         >
           {/* Vertical Line */}
-          <div 
-            className="absolute left-8 md:left-1/2 w-0.5 bg-white/10 -translate-x-1/2 z-0" 
-            style={{ 
-              top: `${ROW_HEIGHT / 2}px`, 
-              height: `${(timelineData.length - 1) * ROW_HEIGHT}px` 
+          <div
+            className="absolute left-8 md:left-1/2 w-0.5 bg-white/10 -translate-x-1/2 z-0"
+            style={{
+              top: `${ROW_HEIGHT / 2}px`,
+              height: `${(timelineData.length - 1) * ROW_HEIGHT}px`
             }}
           />
 
           {/* Rocket */}
-          <motion.div 
+          <motion.div
             initial={false}
             animate={{ y: rocketTop }}
             transition={{ type: "spring", stiffness: 100, damping: 25, mass: 0.5 }}
@@ -93,7 +116,7 @@ const VerticalTimeline = () => {
             </svg>
           </motion.div>
 
-          <div className="relative z-10"> 
+          <div className="relative z-10">
             {timelineData.map((item, index) => (
               <TimelineRow
                 key={index}
@@ -113,15 +136,15 @@ const TimelineRow = React.memo(({ item, index, isActive }) => {
   const isEven = index % 2 === 0;
 
   return (
-    <div 
+    <div
       style={{ height: `${ROW_HEIGHT}px` }}
       className={`relative flex items-center w-full snap-center ${isEven ? 'md:flex-row-reverse' : ''}`}
     >
       <div className="w-[calc(100%-4rem)] md:w-[42%] px-2">
-        <motion.div 
+        <motion.div
           initial={false}
-          animate={{ 
-            opacity: isActive ? 1 : 0.2, 
+          animate={{
+            opacity: isActive ? 1 : 0.2,
             scale: isActive ? 1 : 0.98,
           }}
           transition={{ duration: 0.3, ease: "linear" }}
@@ -149,12 +172,12 @@ const TimelineRow = React.memo(({ item, index, isActive }) => {
           </div>
         </motion.div>
       </div>
-      
+
       <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
-        <motion.div 
+        <motion.div
           initial={false}
-          animate={{ 
-            scale: isActive ? 1.2 : 1, 
+          animate={{
+            scale: isActive ? 1.2 : 1,
             backgroundColor: isActive ? '#2563eb' : '#334155',
           }}
           transition={{ duration: 0.25 }}

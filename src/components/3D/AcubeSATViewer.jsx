@@ -1,48 +1,74 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { 
-  Environment, 
-  OrbitControls, 
-  useGLTF, 
+import {
+  Environment,
+  OrbitControls,
+  useGLTF,
   Center,
   Grid
 } from '@react-three/drei';
 
 function AcuteSatModel() {
-  // Use the scene from GLTF
   const { scene } = useGLTF('/images/AcubeSAT.glb');
-  
+
   return (
-    <Center top>
+    <Center>
       <primitive object={scene} />
     </Center>
   );
 }
 
-export default function App() {
+export default function AcuteSatViewer() {
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, background: '#050505' }}>
-      <Canvas 
-        shadows 
-        camera={{ position: [5, 5, 5], fov: 50 }}
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        borderRadius: '50%',
+        overflow: 'hidden', // <-- critical for circle crop
+        background: '#050505'
+      }}
+    >
+      <Canvas
+        camera={{
+          position: [0, 0, 6],
+          fov: 45
+        }}
       >
-        {/* Lights and Controls stay outside Suspense for stability */}
-        <ambientLight intensity={0.5} />
+        {/* Lighting */}
+        <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
-        <OrbitControls makeDefault />
-        <Grid infiniteGrid fadeDistance={50} sectionColor="#333" cellColor="#222" />
 
-        {/* Only the loading parts go inside Suspense */}
+        {/* Controls enforce size limits */}
+        <OrbitControls
+          makeDefault
+          enablePan={false}
+
+          minDistance={0.5}
+          maxDistance={1}
+
+          enableDamping
+          dampingFactor={0.08}
+
+          autoRotate
+          autoRotateSpeed={0.6}
+        />
+
+
+        <Grid
+          infiniteGrid
+          fadeDistance={40}
+          sectionColor="#333"
+          cellColor="#222"
+        />
+
         <Suspense fallback={null}>
           <Environment preset="city" />
-          <group position={[0, 0, 0]}>
-             <AcuteSatModel />
-          </group>
+          <AcuteSatModel />
         </Suspense>
       </Canvas>
     </div>
   );
 }
 
-// Preload for performance
 useGLTF.preload('/images/AcubeSAT.glb');
