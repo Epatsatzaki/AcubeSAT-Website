@@ -18,6 +18,18 @@ npm run dev
 http://localhost:3000/
 
 
+
+## Credits
+
+Initial architecture and implementation by  
+**Evangelia Patsatzaki**
+
+This project was built from the ground up to support the open-source
+mission of the SpaceDot team, with long-term maintainability and
+community contribution in mind.
+
+- GitHub: https://github.com/Epatsatzaki
+
 ## Description
 Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 

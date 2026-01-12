@@ -1,3 +1,12 @@
+/**
+ * SpaceDot Website
+ *
+ * Initial Architect & Lead Developer:
+ * Evangelia Patsatzaki
+ *
+ * GitHub: https://github.com/Epatsatzaki
+ */
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
