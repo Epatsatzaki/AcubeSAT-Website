@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
 // Common Components
@@ -58,7 +58,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             {/* Standard Pages */}
-            <Route path="/" element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/academia" element={<Academia />} />
             <Route path="/members" element={<Members />} />
