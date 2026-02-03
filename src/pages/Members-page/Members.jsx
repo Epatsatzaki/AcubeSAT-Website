@@ -113,7 +113,7 @@ const Members = () => {
             >
               <div className="w-full aspect-[4/5] bg-gray-100 border-2 border-black mb-4 overflow-hidden">
                 <img
-                  src={`${import.meta.env.BASE_URL}${member.featured_image.replace(/^\//, '')}`}
+                  src={`${import.meta.env.BASE_URL}${member.featured_image.replace(/^(\.\.\/)+/, '')}`}
                   alt={member.title}
                   className="w-full h-full object-cover"
                 />
