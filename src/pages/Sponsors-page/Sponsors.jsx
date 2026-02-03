@@ -93,7 +93,7 @@ const Sponsors = () => {
                       }`}
                     >
                       <img
-                        src={sponsor.featured_image}
+                        src={`${import.meta.env.BASE_URL}${sponsor.featured_image.replace(/^\//, '')}`}
                         alt={sponsor.title}
                         className="h-5/6 object-contain"
                       />
@@ -136,7 +136,7 @@ const Sponsors = () => {
       {/* ===== TOP PART WITH SPONSORS BACKGROUND IMAGE ===== */}
       <div 
         className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/backgrounds/sponsors.jpg')" }}
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/backgrounds/sponsors.jpg')` }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">

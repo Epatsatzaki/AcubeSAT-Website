@@ -1,20 +1,29 @@
 import { siFacebook, siInstagram, siLinkedin, siYoutube, siGitlab } from 'simple-icons';
 
 const Footer = () => {
-
-  const footerLogos = [
-    { name: "ESA", link: "https://www.esa.int", image: "/images/ESA-logos/ESA.png",
+const footerLogos = [
+    { 
+      name: "ESA", 
+      link: "https://www.esa.int", 
+      image: `${import.meta.env.BASE_URL}images/ESA-logos/ESA.png`,
       size: "max-h-[110px] w-auto" 
     },
-    { name: "Fly Your Satellite", link: "https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite", image: "/images/ESA-logos/FYS.png",
+    { 
+      name: "Fly Your Satellite", 
+      link: "https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite", 
+      image: `${import.meta.env.BASE_URL}images/ESA-logos/FYS.png`,
       size: "max-h-[100px] w-auto"
     },
-    { name: "AUTH", link: "https://www.auth.gr", image: "/images/Sponsors/AUTH.png",
+    { 
+      name: "AUTH", 
+      link: "https://www.auth.gr", 
+      image: `${import.meta.env.BASE_URL}images/Sponsors/AUTH.png`,
       size: "max-h-[100px] w-auto"
-
- 
     },
-    { name: "SpaceDot", link: "https://spacedot.gr", image: "/images/SpaceDot-logos/SpaceDot.png",
+    { 
+      name: "SpaceDot", 
+      link: "https://spacedot.gr", 
+      image: `${import.meta.env.BASE_URL}images/SpaceDot-logos/SpaceDot.png`,
       size: "max-h-[80px] w-auto"
     },
   ];

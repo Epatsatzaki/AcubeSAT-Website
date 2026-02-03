@@ -5,13 +5,14 @@ const InteractiveDiagram = () => {
   const [hoveredHotspot, setHoveredHotspot] = useState(null);
 
   // Data for each component
+// Data for each component
   const hotspots = [
     { 
       id: 1, 
       top: '15%', 
       left: '50%', 
       label: 'Pressurized Housing', 
-      img: '/images/interractiveDiagram/container.png', 
+      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/container.png`, 
       description: 'Maintains a constant 1 atm pressure and protects biological samples from the vacuum of space, ensuring a stable environment for experiment success.'
     },
     { 
@@ -19,7 +20,7 @@ const InteractiveDiagram = () => {
       top: '54%', 
       left: '48%', 
       label: 'Lab-on-a-chip', 
-      img: '/images/interractiveDiagram/lab-on-a-chip.png', 
+      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/lab-on-a-chip.png`, 
       description: 'The core biological interface where micro-channels guide nutrients to cells, allowing for real-time monitoring of biological growth in microgravity.'
     },
     { 
@@ -27,7 +28,7 @@ const InteractiveDiagram = () => {
       top: '60.5%', 
       left: '48%', 
       label: 'Automated Fluidic System', 
-      img: '/images/interractiveDiagram/fluidics.png', 
+      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/fluidics.png`, 
       description: 'A complex network of micro-pumps and valves that precisely manages the lifecycle of the experiment by injecting reagents at specific intervals.'
     },
     { 
@@ -35,7 +36,7 @@ const InteractiveDiagram = () => {
       top: '65%', 
       left: '52%', 
       label: 'Autonomous Electronics System', 
-      img: '/images/interractiveDiagram/gkogopcb.png', 
+      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/gkogopcb.png`, 
       description: 'Responsible for power distribution, thermal regulation, and high-speed data acquisition. It acts as the primary interface between the payload and the satellite bus.'
     },
   ];
@@ -45,7 +46,7 @@ const InteractiveDiagram = () => {
       {/* Main Center Photo */}
       <div className="relative">
         <img 
-          src="/images/interractiveDiagram/payload1.png" 
+          src={`${import.meta.env.BASE_URL}images/interactiveDiagram/payload1.png`} 
           alt="AcubeSAT Payload" 
           className="w-full h-auto rounded-xl shadow-2xl"
         />

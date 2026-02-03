@@ -11,7 +11,7 @@ const Header = () => {
           <div className="flex-shrink-0 w-1/4 min-w-[120px] max-w-[220px]">
             <Link to="/" className="flex items-center space-x-3 group">
               <img 
-                src="/images/SpaceDot-logos/AcubeSAT.png" 
+                src={`${import.meta.env.BASE_URL}images/SpaceDot-logos/AcubeSAT.png`} 
                 alt="AcubeSAT Logo"
                 className="h-10 w-auto group-hover:scale-110 transition-transform duration-200"
               />

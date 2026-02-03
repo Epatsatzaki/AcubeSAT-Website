@@ -113,7 +113,7 @@ const Members = () => {
             >
               <div className="w-full aspect-[4/5] bg-gray-100 border-2 border-black mb-4 overflow-hidden">
                 <img
-                  src={member.featured_image}
+                  src={`${import.meta.env.BASE_URL}${member.featured_image.replace(/^\//, '')}`}
                   alt={member.title}
                   className="w-full h-full object-cover"
                 />
@@ -154,7 +154,7 @@ const Members = () => {
       </Helmet>
       <div 
         className="relative h-[65vh] bg-cover bg-top flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/backgrounds/members.JPG')" }}
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/backgrounds/members.JPG')` }} 
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">

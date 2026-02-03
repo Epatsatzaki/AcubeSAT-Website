@@ -109,7 +109,7 @@ const Join = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <img 
-          src="/images/backgrounds/joinUs.jpg" 
+          src={`${import.meta.env.BASE_URL}images/backgrounds/joinUs.jpg`} 
           alt="AcubeSAT Mission" 
           className="absolute inset-0 w-full h-full object-cover brightness-50"
         />
@@ -168,7 +168,7 @@ const Join = () => {
       {/* Bottom Section */}
       <div className="relative mt-12 py-32 overflow-hidden">
         <img 
-          src="/images/backgrounds/joinUsBottom.jpg" 
+          src={`${import.meta.env.BASE_URL}images/backgrounds/joinUsBottom.jpg`} 
           alt="Life at SpaceDot" 
           className="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
         />
