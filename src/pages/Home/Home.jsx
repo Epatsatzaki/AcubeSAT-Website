@@ -204,7 +204,7 @@ const Home = () => {
       <section 
         className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("/images/backgrounds/home.png")'
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/backgrounds/home.png')`
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>

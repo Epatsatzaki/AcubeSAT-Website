@@ -77,11 +77,11 @@ const VerticalTimeline = () => {
   const rocketTop = activeIndex * ROW_HEIGHT + ROW_HEIGHT / 2;
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-full py-10 flex justify-center items-center bg-cover bg-center bg-fixed rounded-[2.5rem] overflow-hidden"
-      style={{ backgroundImage: "url('/images/sky.jpg')" }}
-    >
+      <div
+        ref={containerRef}
+        className="relative w-full py-10 flex justify-center items-center bg-cover bg-center bg-fixed rounded-[2.5rem] overflow-hidden"
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/sky.jpg')` }}
+      >
       <div className="absolute inset-0 bg-slate-950/40 z-0" />
 
       <div

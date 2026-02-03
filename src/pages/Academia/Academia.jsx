@@ -178,7 +178,7 @@ const Academia = () => {
       
       <div id="academia-hero"
         className="relative h-64 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/backgrounds/academia.jpg')" }}
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/backgrounds/academia.jpg')` }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
