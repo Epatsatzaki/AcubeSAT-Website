@@ -3,6 +3,8 @@
 Official website for the SpaceDot team, built to support its open-source
 mission and public presence.
 
+**Live Demo:** [epatsatzaki.github.io/AcubeSAT-Website/](https://epatsatzaki.github.io/AcubeSAT-Website/)
+
 ---
 ## Setup
 
