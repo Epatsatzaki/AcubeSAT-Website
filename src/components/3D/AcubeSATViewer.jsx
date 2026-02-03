@@ -9,8 +9,7 @@ import {
 } from '@react-three/drei';
 
 function AcuteSatModel() {
-  const { scene } = useGLTF('/images/AcubeSAT.glb');
-
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}images/AcubeSAT.glb`);
   return (
     <Center>
       <primitive object={scene} />
