@@ -1,6 +1,6 @@
 export default {
   title: "Evangelia Patsatzaki",
-  featured_image: "/images/Members/SU_EVANGELIA_PATSATZAKI.png",
+  featured_image: "../../images/Members/SU_EVANGELIA_PATSATZAKI.png",
   member_category: "MRK",
   subTitle: "MRK member",
   Github: "https://gitlab.com/Epatsatzaki",
