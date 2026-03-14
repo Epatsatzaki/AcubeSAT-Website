@@ -28,7 +28,7 @@ const InteractiveDiagram = () => {
       top: '60.5%', 
       left: '48%', 
       label: 'Automated Fluidic System', 
-      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/fluidics.png`, 
+      img: `${import.meta.env.BASE_URL}images/interactiveDiagram/fluidics.jpg`, 
       description: 'A complex network of micro-pumps and valves that precisely manages the lifecycle of the experiment by injecting reagents at specific intervals.'
     },
     { 
